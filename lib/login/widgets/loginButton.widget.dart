@@ -2,9 +2,14 @@ import 'package:awtos/cadastro/cadastro.view.dart';
 import 'package:awtos/home/home.view.dart';
 import 'package:flutter/material.dart';
 
-class LoginButton extends StatelessWidget {
+class LoginButton extends StatefulWidget {
   const LoginButton({super.key});
 
+  @override
+  State<LoginButton> createState() => _LoginButtonState();
+}
+
+class _LoginButtonState extends State<LoginButton> {
   @override
   Widget build(BuildContext context) {
 
@@ -42,7 +47,7 @@ class LoginButton extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => const HomeView(),
+                    builder: (context) => const MapSample(),
                   ),
                 );
               },

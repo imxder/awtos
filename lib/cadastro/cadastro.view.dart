@@ -27,58 +27,56 @@ class CadastroView extends StatelessWidget {
     );
   }
   _body() {
-    return Container (
-      child: ListView(
-        shrinkWrap: true,
-        padding: const EdgeInsets.all(12),
-        children: const [
-          Titulo(),
-          SizedBox(height: 10),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15), 
-            child: NomeField(),
-          ),
-          SizedBox(height: 10),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15), 
-            child: EmailField(),
-          ),
-          SizedBox(height: 10),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15), 
-            child: ValidaEmail(),
-          ),
-          SizedBox(height: 15),
-          Padding(
-            padding: EdgeInsets.fromLTRB(35, 0, 15, 15),
-            child: DataNascimento(),
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15), 
-            child: AddressField(),
-          ),
-          SizedBox(height: 10),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15), 
-            child: NeighborhoodField(),
-          ),
-           SizedBox(height: 10),
-          Padding(
-            padding: EdgeInsets.fromLTRB(15, 0, 40, 15), 
-            child: StreetNameField(),
-          ),
-          SizedBox(height: 10),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15), 
-            child: DescriptionText(),
-          ),
-          SizedBox(height: 10),
-          Padding(
-            padding: EdgeInsets.fromLTRB(15, 0, 50, 15), 
-            child: MatriculaField(),
-          ),
-        ],
-      ),
+    return ListView(
+      shrinkWrap: true,
+      padding: const EdgeInsets.all(12),
+      children: const [
+        Titulo(),
+        SizedBox(height: 10),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 15), 
+          child: NomeField(),
+        ),
+        SizedBox(height: 10),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 15), 
+          child: EmailField(),
+        ),
+        SizedBox(height: 10),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 15), 
+          child: ValidaEmail(),
+        ),
+        SizedBox(height: 15),
+        Padding(
+          padding: EdgeInsets.fromLTRB(35, 0, 15, 15),
+          child: DataNascimento(),
+        ),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 15), 
+          child: AddressField(),
+        ),
+        SizedBox(height: 10),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 15), 
+          child: NeighborhoodField(),
+        ),
+         SizedBox(height: 10),
+        Padding(
+          padding: EdgeInsets.fromLTRB(15, 0, 40, 15), 
+          child: StreetNameField(),
+        ),
+        SizedBox(height: 10),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 15), 
+          child: DescriptionText(),
+        ),
+        SizedBox(height: 10),
+        Padding(
+          padding: EdgeInsets.fromLTRB(15, 0, 50, 15), 
+          child: MatriculaField(),
+        ),
+      ],
     );
   }
 }

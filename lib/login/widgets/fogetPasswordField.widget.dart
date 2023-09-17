@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 
-class ForgetPasswordButton extends StatelessWidget {
+class ForgetPasswordButton extends StatefulWidget {
   const ForgetPasswordButton({super.key});
 
+  @override
+  State<ForgetPasswordButton> createState() => _ForgetPasswordButtonState();
+}
 
+class _ForgetPasswordButtonState extends State<ForgetPasswordButton> {
   @override
   Widget build(BuildContext context) {
     return TextButton(
