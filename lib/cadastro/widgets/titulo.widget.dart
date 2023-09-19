@@ -9,7 +9,7 @@ class Titulo extends StatelessWidget {
     'AWTOS',
       textAlign: TextAlign.center,
       style: TextStyle(
-        fontSize: 30,
+        fontSize: 22,
         
         fontWeight: FontWeight.bold,
         color: Color.fromARGB(255, 2, 25, 45),

@@ -1,6 +1,5 @@
-
 import 'dart:async';
-
+import 'package:awtos/range/range.view.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter/material.dart';
 
@@ -24,9 +23,16 @@ class MapSampleState extends State<MapSample> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+       // automaticallyImplyLeading: false,      
+        title: const Text('AWTOS', 
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
         
-       title: const Text('tassi-achando'),
-      
+        ),
+        backgroundColor: const Color.fromRGBO(1, 28, 105, 0.9),
       ),
       
       body: GoogleMap(
@@ -35,7 +41,29 @@ class MapSampleState extends State<MapSample> {
         onMapCreated: (GoogleMapController controller) {
           _controller.complete(controller);
         },
-      ), 
+      ),
+
+      bottomNavigationBar: BottomAppBar(
+        
+        color: const Color.fromRGBO(1, 28, 105, 0.9),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            
+            IconButton(
+              icon: const Icon(Icons.arrow_forward_ios),
+              color: Colors.white,
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const MapRange(),
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
+      )            
     );
   }
 }

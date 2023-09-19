@@ -30,8 +30,8 @@ class _LoginViewState extends State<LoginView> {
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [Colors.white, Color.fromRGBO(1, 29, 104, 1)],
-          stops: [0.7,0.9], // Cores do degradê
+          colors: [Colors.white, Color.fromRGBO(1, 27, 104, 0.97)],
+          stops: [0.7,0.92], // Cores do degradê
         ),
       ),
 

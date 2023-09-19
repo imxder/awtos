@@ -8,24 +8,68 @@ import 'package:awtos/cadastro/widgets/streetNameField.widget.dart';
 import 'package:awtos/cadastro/widgets/titulo.widget.dart';
 import 'package:awtos/cadastro/widgets/validaEmailField.widget.dart';
 import 'package:awtos/cadastro/widgets/emailField.widget.dart';
+import 'package:awtos/login/login.view.dart';
 import 'package:flutter/material.dart';
 
-class CadastroView extends StatelessWidget {
+class CadastroView extends StatefulWidget {
   const CadastroView ({super.key});
 
   @override
+  State<CadastroView> createState() => _CadastroViewState();
+}
+
+class _CadastroViewState extends State<CadastroView> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-    appBar: AppBar(
-      title: const Text('Cadastro de Dados'),
-      centerTitle: true,
-      backgroundColor: const Color.fromARGB(255, 5, 50, 93),
-    ),
     
-    body: _body(),
-    
+      appBar: AppBar(
+      
+        title: const Text('Cadastro de Dados',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 22,
+            fontWeight: FontWeight.normal,
+            color: Color.fromRGBO(1, 28, 105, 0.9),
+          ),
+        ),
+        backgroundColor: const Color.fromARGB(230, 243, 243, 242),
+        
+        leading: IconButton(
+          icon: const Icon(
+            Icons.arrow_back_outlined,
+            color:  Color.fromRGBO(1, 28, 105, 0.9), 
+          ),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
+      ),
+  
+      body: _body(),
+
+      bottomNavigationBar: BottomAppBar(
+        color: const Color.fromARGB(255, 5, 50, 93),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            IconButton(
+              icon: const Icon(Icons.arrow_forward_outlined),
+              color: Colors.white,
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const LoginView(),
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
+      ), 
     );
   }
+
   _body() {
     return ListView(
       shrinkWrap: true,
@@ -77,6 +121,8 @@ class CadastroView extends StatelessWidget {
           child: MatriculaField(),
         ),
       ],
+      
     );
+    
   }
 }
