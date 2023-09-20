@@ -14,11 +14,11 @@ class _LoginButtonState extends State<LoginButton> {
   Widget build(BuildContext context) {
 
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Container(
-          margin: const EdgeInsets.only(right: 0), // Espaço entre os botões (ajuste conforme necessário)
-          child: Expanded(
+        Expanded(
+          child: Container(
+            margin: const EdgeInsets.only(right: 2.5),
             child: ElevatedButton(
               onPressed: () {
                 Navigator.of(context).push(
@@ -29,20 +29,21 @@ class _LoginButtonState extends State<LoginButton> {
               },
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8.0), // Ajuste o valor do raio conforme necessário
+                  borderRadius: BorderRadius.circular(8.0),
                 ),
-                backgroundColor: Color.fromARGB(255, 98, 0, 0), // Cor de fundo vermelha para o botão "CADASTRAR"
+                backgroundColor: const Color.fromARGB(255, 98, 0, 0),
               ).copyWith(
-                minimumSize: MaterialStateProperty.all(const Size(0, 40)), // Ajuste a altura do botão (40 é um exemplo)
-                padding: MaterialStateProperty.all(const EdgeInsets.symmetric(horizontal: 20.0)), // Ajuste o padding horizontal conforme necessário
+                minimumSize: MaterialStateProperty.all(const Size(0, 40)),
+                padding: MaterialStateProperty.all(const EdgeInsets.symmetric(horizontal: 20.0)),
               ),
               child: const Text('CADASTRO'),
             ),
           ),
         ),
-        Container(
-          margin: const EdgeInsets.only(left: 0), // Espaço entre os botões (ajuste conforme necessário)
-          child: Expanded(
+        
+        Expanded(
+          child: Container(
+            margin: const EdgeInsets.only(left: 2.5),
             child: ElevatedButton(
               onPressed: () {
                 Navigator.of(context).push(
@@ -53,18 +54,18 @@ class _LoginButtonState extends State<LoginButton> {
               },
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8.0), // Ajuste o valor do raio conforme necessário
+                  borderRadius: BorderRadius.circular(8.0),
                 ),
-                backgroundColor: const Color.fromARGB(255, 48, 53, 126), // Cor de fundo azul para o botão "Logar"
+                backgroundColor: const Color.fromARGB(255, 48, 53, 126),
               ).copyWith(
-                minimumSize: MaterialStateProperty.all(const Size(0, 40)), // Ajuste a altura do botão (40 é um exemplo)
-                padding: MaterialStateProperty.all(const EdgeInsets.symmetric(horizontal: 35.0)), // Ajuste o padding horizontal conforme necessário
+                minimumSize: MaterialStateProperty.all(const Size(0, 40)),
+                padding: MaterialStateProperty.all(const EdgeInsets.symmetric(horizontal: 20.0)),
               ),
               child: const Text('ENTRAR'),
             ),
           ),
         ),
       ],
-    );
+    );    
   }
 }
