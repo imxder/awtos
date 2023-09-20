@@ -54,7 +54,7 @@ class _LoginViewState extends State<LoginView> {
             ),
             SizedBox(height: 17),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 60), 
+              padding: EdgeInsets.symmetric(horizontal: 40), 
               child: LoginButton(),
             ),
             ForgetPasswordButton(),
