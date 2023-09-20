@@ -5,6 +5,7 @@ import 'package:awtos/cadastro/widgets/dataNascimento.widget.dart';
 import 'package:awtos/cadastro/widgets/addressField.widget.dart';
 import 'package:awtos/cadastro/widgets/nameField.widget.dart';
 import 'package:awtos/cadastro/widgets/streetNameField.widget.dart';
+import 'package:awtos/cadastro/widgets/termos.widget.dart';
 import 'package:awtos/cadastro/widgets/titulo.widget.dart';
 import 'package:awtos/cadastro/widgets/validaEmailField.widget.dart';
 import 'package:awtos/cadastro/widgets/emailField.widget.dart';
@@ -33,7 +34,7 @@ class _CadastroViewState extends State<CadastroView> {
             color: Color.fromRGBO(1, 28, 105, 0.9),
           ),
         ),
-        backgroundColor: const Color.fromARGB(230, 243, 243, 242),
+        backgroundColor: const Color.fromARGB(255, 235, 235, 235),
         
         leading: IconButton(
           icon: const Icon(
@@ -120,6 +121,7 @@ class _CadastroViewState extends State<CadastroView> {
           padding: EdgeInsets.fromLTRB(15, 0, 50, 15), 
           child: MatriculaField(),
         ),
+        TermosCheck(),
       ],
       
     );

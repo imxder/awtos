@@ -27,7 +27,7 @@ class DataNascimento extends StatelessWidget {
       
             textAlign: TextAlign.center,
             decoration: InputDecoration(
-              hintText: 'xx/xx/xxxx',
+              hintText: 'dd/mm/yyyy',
               enabled: true,
               border: OutlineInputBorder(
                 borderSide: BorderSide(

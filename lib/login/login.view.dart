@@ -30,8 +30,8 @@ class _LoginViewState extends State<LoginView> {
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [Colors.white, Color.fromRGBO(1, 27, 104, 0.97)],
-          stops: [0.7,0.92], // Cores do degradê
+          colors: [Colors.white, Color.fromARGB(255, 0, 44, 125)],
+          stops: [0.76,0.91], // Cores do degradê
         ),
       ),
 
@@ -42,7 +42,7 @@ class _LoginViewState extends State<LoginView> {
           children: const [
             SizedBox(height: 110),
             Logo(),
-            SizedBox(height: 35),
+            SizedBox(height: 50),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 40), 
               child: EmailField(),
@@ -54,7 +54,7 @@ class _LoginViewState extends State<LoginView> {
             ),
             SizedBox(height: 17),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 40), 
+              padding: EdgeInsets.symmetric(horizontal: 60), 
               child: LoginButton(),
             ),
             ForgetPasswordButton(),

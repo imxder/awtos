@@ -15,9 +15,10 @@ class _LogoState extends State<Logo> {
       child: Text(
         'AWTOS',
         style: TextStyle(
-          fontSize: 55,
+          fontFamily: 'Raleway',
+          fontSize: 65,
           fontWeight: FontWeight.bold,
-          color: Color.fromARGB(255, 14, 58, 97),
+          color: Color.fromARGB(255, 0, 41, 123),
         ),
       ),
     );

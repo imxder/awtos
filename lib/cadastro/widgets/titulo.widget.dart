@@ -7,8 +7,10 @@ class Titulo extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Text(
     'AWTOS',
+      
       textAlign: TextAlign.center,
       style: TextStyle(
+        fontFamily: 'Raleway',
         fontSize: 22,
         
         fontWeight: FontWeight.bold,

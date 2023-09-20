@@ -26,13 +26,14 @@ class MapSampleState extends State<MapSample> {
        // automaticallyImplyLeading: false,      
         title: const Text('AWTOS', 
           style: TextStyle(
+            fontFamily: 'Raleway',
             fontSize: 20,
             fontWeight: FontWeight.bold,
             color: Colors.white,
           ),
         
         ),
-        backgroundColor: const Color.fromRGBO(1, 28, 105, 0.9),
+        backgroundColor: const Color.fromARGB(255, 0, 44, 125),
       ),
       
       body: GoogleMap(
@@ -45,7 +46,7 @@ class MapSampleState extends State<MapSample> {
 
       bottomNavigationBar: BottomAppBar(
         
-        color: const Color.fromRGBO(1, 28, 105, 0.9),
+        color: const Color.fromARGB(255, 0, 44, 125),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [

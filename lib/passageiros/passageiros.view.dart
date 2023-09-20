@@ -27,6 +27,7 @@ class _PassageirosState extends State<Passageiros> {
             child: Text(
               'AWTOS',
               style: TextStyle(
+                fontFamily: 'Raleway',
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
@@ -35,6 +36,11 @@ class _PassageirosState extends State<Passageiros> {
           ),  
           backgroundColor: const Color.fromRGBO(1, 28, 105, 0.9),
         ),      
+         
+
+        
+
+      
 
       ),
     );

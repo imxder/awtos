@@ -30,6 +30,7 @@ class _MapRangeState extends State<MapRange> {
             child: Text(
               'AWTOS',
               style: TextStyle(
+                fontFamily: 'Raleway',
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,

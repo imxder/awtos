@@ -31,7 +31,7 @@ class _LoginButtonState extends State<LoginButton> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8.0), // Ajuste o valor do raio conforme necessário
                 ),
-                backgroundColor: Colors.red, // Cor de fundo vermelha para o botão "CADASTRAR"
+                backgroundColor: Color.fromARGB(255, 98, 0, 0), // Cor de fundo vermelha para o botão "CADASTRAR"
               ).copyWith(
                 minimumSize: MaterialStateProperty.all(const Size(0, 40)), // Ajuste a altura do botão (40 é um exemplo)
                 padding: MaterialStateProperty.all(const EdgeInsets.symmetric(horizontal: 20.0)), // Ajuste o padding horizontal conforme necessário
@@ -55,7 +55,7 @@ class _LoginButtonState extends State<LoginButton> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8.0), // Ajuste o valor do raio conforme necessário
                 ),
-                backgroundColor: Colors.blue, // Cor de fundo azul para o botão "Logar"
+                backgroundColor: const Color.fromARGB(255, 48, 53, 126), // Cor de fundo azul para o botão "Logar"
               ).copyWith(
                 minimumSize: MaterialStateProperty.all(const Size(0, 40)), // Ajuste a altura do botão (40 é um exemplo)
                 padding: MaterialStateProperty.all(const EdgeInsets.symmetric(horizontal: 35.0)), // Ajuste o padding horizontal conforme necessário
