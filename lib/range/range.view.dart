@@ -1,7 +1,10 @@
+
+import 'package:awtos/menu/NavBar.dart';
 import 'package:awtos/passageiros/passageiros.view.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+
 
 
 class MapRange extends StatefulWidget {
@@ -23,6 +26,7 @@ class _MapRangeState extends State<MapRange> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: const Align(
@@ -37,15 +41,18 @@ class _MapRangeState extends State<MapRange> {
               ),
             ),
           ),
+        
         backgroundColor: const Color.fromRGBO(1, 28, 105, 0.9),
       ),
+      endDrawer: const NavBar(),
       
       body: Column(
         children: [
-          Container(
+          Container (
             color:  const Color.fromARGB(230, 243, 243, 242), // Cor da barra abaixo da AppBar
             height: 60, // Altura da barra abaixo da AppBar
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 IconButton(
                   icon: const Icon(Icons.arrow_back), // Ícone de voltar (seta para a esquerda)
@@ -54,12 +61,17 @@ class _MapRangeState extends State<MapRange> {
                     Navigator.of(context).pop();
                   },
                 ),
-                const Text(
-                  'Barra Abaixo da AppBar',
-                  style: TextStyle(
-                    color: Color.fromRGBO(1, 28, 105, 0.9),
+                const Expanded(
+                  child: Center(
+                    child: Text(
+                      'Raio de Pesquisa',
+                      style: TextStyle(
+                        color: Color.fromRGBO(1, 28, 105, 0.9),
+                      ),
+                    ),
                   ),
                 ),
+                const SizedBox(width: 40),
               ],
             ),
           ),

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:awtos/menu/NavBar.dart';
 import 'package:awtos/range/range.view.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +36,8 @@ class MapSampleState extends State<MapSample> {
         ),
         backgroundColor: const Color.fromARGB(255, 0, 44, 125),
       ),
-      
+      endDrawer: const NavBar(),
+
       body: GoogleMap(
         mapType: MapType.normal,
         initialCameraPosition: _kGooglePlex,
@@ -64,7 +66,7 @@ class MapSampleState extends State<MapSample> {
             ),
           ],
         ),
-      )            
+      ),
     );
   }
 }
