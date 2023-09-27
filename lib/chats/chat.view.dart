@@ -17,9 +17,9 @@ class Message {
 
 class _ChatPageState extends State<ChatPage> {
   final List<Message> messages = [
-    Message(sender: 'João', text: 'Olá, tudo bem?', isSender: true),
-    Message(sender: 'Maria', text: 'Sim, estou bem. E você?', isSender: false),
-    Message(sender: 'João', text: 'Estou ótimo, obrigado!', isSender: true),
+    Message(sender: 'João', text: 'Vai ir para na sexta-feira?', isSender: true),
+    Message(sender: 'Maria', text: 'Vai ir que horas para a faculdade hoje?', isSender: false),
+    Message(sender: 'Diogo', text: 'Vai passar pelo centro?', isSender: true),
     // Adicione mais mensagens conforme necessário
   ];
 

@@ -8,7 +8,6 @@ class DataNascimento extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Row(
       children: <Widget>[
-        
         Text(
           'Data de Nascimento:',
           style: TextStyle(

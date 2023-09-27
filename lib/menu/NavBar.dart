@@ -28,10 +28,12 @@ class _NavBarState extends State<NavBar> {
               setState(() {
                 isDarkModeEnabled = value;
                 
-              });
-             
+              }); 
             },
             
+            inactiveTrackColor: Colors.grey, 
+            activeColor: const Color.fromRGBO(1, 28, 105, 0.9), // Cor da bola (thumb) quando o Dark Mode está ativado
+           
           ),
           ListTile(
             leading: const Icon(Icons.person,
