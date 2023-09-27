@@ -24,35 +24,50 @@ class MapSampleState extends State<MapSample> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-       // automaticallyImplyLeading: false,      
-        title: const Text('AWTOS', 
+        automaticallyImplyLeading: false, // Remove o ícone de voltar  
+        title: const Text('AWTOS',   
           style: TextStyle(
             fontFamily: 'Raleway',
             fontSize: 20,
             fontWeight: FontWeight.bold,
             color: Colors.white,
           ),
-        
+          
         ),
         backgroundColor: const Color.fromARGB(255, 0, 44, 125),
-      ),
+        centerTitle: true,
+      ), 
       endDrawer: const NavBar(),
 
-      body: GoogleMap(
-        mapType: MapType.normal,
-        initialCameraPosition: _kGooglePlex,
-        onMapCreated: (GoogleMapController controller) {
-          _controller.complete(controller);
-        },
+      body: Column(
+        children: [
+          
+          Expanded(
+            child:GoogleMap(
+              mapType: MapType.normal,
+              initialCameraPosition: _kGooglePlex,
+              onMapCreated: (GoogleMapController controller) {
+                _controller.complete(controller);
+              },
+            ),
+          ),
+        ],
       ),
-
       bottomNavigationBar: BottomAppBar(
-        
         color: const Color.fromARGB(255, 0, 44, 125),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.end, // Centraliza os elementos horizontalmente
           children: [
-            
+            const Spacer(),
+            const SizedBox(width: 50),
+            const Text(
+              'Procurar',   
+              style: TextStyle(
+                fontSize: 20,
+                color: Color.fromRGBO(255, 255, 255, 1),
+              ),
+            ),
+            const Spacer(),
             IconButton(
               icon: const Icon(Icons.arrow_forward_ios),
               color: Colors.white,

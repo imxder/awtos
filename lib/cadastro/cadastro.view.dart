@@ -48,14 +48,24 @@ class _CadastroViewState extends State<CadastroView> {
       ),
   
       body: _body(),
-
+      
       bottomNavigationBar: BottomAppBar(
-        color: const Color.fromARGB(255, 5, 50, 93),
+        color: const Color.fromARGB(255, 0, 44, 125),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.end, // Centraliza os elementos horizontalmente
           children: [
+            const Spacer(),
+            const SizedBox(width: 50),
+            const Text(
+              'Confirmar',   
+              style: TextStyle(
+                fontSize: 20,
+                color: Color.fromRGBO(255, 255, 255, 1),
+              ),
+            ),
+            const Spacer(),
             IconButton(
-              icon: const Icon(Icons.arrow_forward_outlined),
+              icon: const Icon(Icons.arrow_forward_ios),
               color: Colors.white,
               onPressed: () {
                 Navigator.of(context).push(
@@ -67,7 +77,8 @@ class _CadastroViewState extends State<CadastroView> {
             ),
           ],
         ),
-      ), 
+      ),
+      
     );
   }
 
