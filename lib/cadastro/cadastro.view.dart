@@ -65,7 +65,7 @@ class _CadastroViewState extends State<CadastroView> {
             ),
             const Spacer(),
             IconButton(
-              icon: const Icon(Icons.arrow_forward_ios),
+              icon: const Icon(Icons.arrow_forward_outlined),
               color: Colors.white,
               onPressed: () {
                 Navigator.of(context).push(

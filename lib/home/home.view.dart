@@ -69,7 +69,7 @@ class MapSampleState extends State<MapSample> {
             ),
             const Spacer(),
             IconButton(
-              icon: const Icon(Icons.arrow_forward_ios),
+              icon: const Icon(Icons.arrow_forward),
               color: Colors.white,
               onPressed: () {
                 Navigator.of(context).push(
