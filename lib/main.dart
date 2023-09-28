@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'AWTOS',
       theme: ThemeData(
-        primaryColor : Colors.blue,
+        primaryColor : const Color.fromRGBO(1, 28, 105, 0.9),
       ),
       home: const LoginView(),
       
