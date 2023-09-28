@@ -1,6 +1,7 @@
-## N1 - Desenvolvimento de Telas
+# Descrição do App:
+<p>O aplicativo acima será responsável no auxílio de carona para os alunos da universidade, tendo em vista os alunos que vão de carro para a universidade, assim eles poderiam se cadastrar no aplicativo e dar carona para outros alunos que moram próximo ou no caminho da universidade.</p>
 
-
+# Funcionalidades:
 ## Tela de Login:
 - Fazer login com e-mail e senha;
 - Cadastrar-se;
@@ -34,11 +35,19 @@
 - Acesso a tela de configurações;
 - Botão de log out;
 
-## Tela Passageiros;
+## Tela Passageiros:
 - Foto do passageiros/alunos;
 - Botão de aceitar a corrida;
 - Botão para acesso ao chat;
 - Botão de recusar a corrida;
 
-## Tela de chat:
+## Tela de Chats:
 - Acesso as mensagens dos passageiros;
+- Notificações de mensagens não visualizadas;
+
+## Tela de Chat:
+- Enviar mensagens;
+- Receber mensagens;
+- Foto e nome do passageiro;
+  
+  
