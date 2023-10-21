@@ -1,5 +1,5 @@
 import 'package:awtos/chats/chat.view.dart';
-import 'package:awtos/menu/NavBar.dart';
+import 'package:awtos/menu/nav_bar.dart';
 import 'package:flutter/material.dart';
 
 class Passageiros extends StatefulWidget {

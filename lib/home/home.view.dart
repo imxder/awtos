@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:awtos/menu/NavBar.dart';
+import 'package:awtos/menu/nav_bar.dart';
 import 'package:awtos/range/range.view.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter/material.dart';

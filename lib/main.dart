@@ -12,9 +12,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'AWTOS',
       theme: ThemeData(
-        primaryColor : const Color.fromRGBO(1, 28, 105, 0.9),
+       primaryColor : const Color.fromRGBO(1, 28, 105, 0.9),
       ),
       home: const LoginView(),
       

@@ -1,4 +1,5 @@
 import 'package:awtos/login/login.view.dart';
+import 'package:awtos/menu/motorista.view.dart';
 import 'package:flutter/material.dart';
 
 class NavBar extends StatefulWidget {
@@ -56,7 +57,11 @@ class _NavBarState extends State<NavBar> {
             color: Color.fromRGBO(1, 28, 105, 0.9)),
             title: const Text('Área do Motorista'),
             onTap: () {
-              
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const AreaMotorista(),
+                ),
+              );
             },
           ),
           ListTile(

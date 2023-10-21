@@ -1,4 +1,4 @@
-import 'package:awtos/menu/NavBar.dart';
+import 'package:awtos/menu/nav_bar.dart';
 import 'package:awtos/passageiros/passageiros.view.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
