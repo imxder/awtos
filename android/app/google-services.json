@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "449503659574",
+    "project_id": "n2dm-ae18b",
+    "storage_bucket": "n2dm-ae18b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:449503659574:android:9dbc39a81575757ec1ba97",
+        "android_client_info": {
+          "package_name": "com.example.awtos"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpdfFAaIC1J9eps7YwhSwrau1XAC3m5gs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
