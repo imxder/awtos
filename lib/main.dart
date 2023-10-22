@@ -1,5 +1,5 @@
 import 'package:awtos/firebase_options.dart';
-import 'package:awtos/login/login.view.dart';
+import 'package:awtos/selectmode.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -19,8 +19,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
        primaryColor : const Color.fromRGBO(1, 28, 105, 0.9),
       ),
-      home: const LoginView(),
-      
+      home: const SelectMode(),
+
     );
     
   }
