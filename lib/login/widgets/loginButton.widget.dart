@@ -1,4 +1,4 @@
-import 'package:awtos/passageiro/cadastro/cadastro.view.dart';
+import 'package:awtos/motorista/range/range.view.dart';
 import 'package:awtos/passageiro/home/home.view.dart';
 import 'package:flutter/material.dart';
 
@@ -21,9 +21,9 @@ class _LoginButtonState extends State<LoginButton> {
             margin: const EdgeInsets.only(right: 2.5),
             child: ElevatedButton(
               onPressed: () {
-                Navigator.of(context).push(
+               Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => const CadastroPassageiroView(),
+                    builder: (context) => const MapRange(),
                   ),
                 );
               },
@@ -36,7 +36,7 @@ class _LoginButtonState extends State<LoginButton> {
                 minimumSize: MaterialStateProperty.all(const Size(0, 40)),
                 padding: MaterialStateProperty.all(const EdgeInsets.symmetric(horizontal: 20.0)),
               ),
-              child: const Text('CADASTRO'),
+              child: const Text('MOTORISTA'),
             ),
           ),
         ),
@@ -48,7 +48,7 @@ class _LoginButtonState extends State<LoginButton> {
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => const MapSample(),
+                    builder: (context) => const MapSample()
                   ),
                 );
               },
@@ -61,11 +61,11 @@ class _LoginButtonState extends State<LoginButton> {
                 minimumSize: MaterialStateProperty.all(const Size(0, 40)),
                 padding: MaterialStateProperty.all(const EdgeInsets.symmetric(horizontal: 20.0)),
               ),
-              child: const Text('ENTRAR'),
+              child: const Text('PASSAGEIRO'),
             ),
           ),
         ),
       ],
-    );    
+    );
   }
 }

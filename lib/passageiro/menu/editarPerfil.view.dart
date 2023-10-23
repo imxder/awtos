@@ -39,17 +39,19 @@ class _PerfilPassageiroState extends State<PerfilPassageiro> {
               children: [
                 _image != null ? 
                   CircleAvatar(
-                    radius: 64,
+                    radius: 50,
+                    
                     backgroundImage: MemoryImage(_image!),
                   )
                   :
                 const CircleAvatar(
-                  radius: 64,
+                  radius: 50,
+                
                   backgroundImage: AssetImage('assets/images/emptyprofile.png'),
                 ),
                 Positioned(
                   bottom: -10,
-                  left: 80,
+                  left: 59,
                   child: IconButton(
                     onPressed: selectImage,
                     icon: const Icon(Icons.add_a_photo),
@@ -58,32 +60,8 @@ class _PerfilPassageiroState extends State<PerfilPassageiro> {
               ],
             ),
             const SizedBox(height: 20),
-            const TextField(
-              decoration:  InputDecoration(
-                labelText: 'Nome do Motorista',
-                border: OutlineInputBorder(),
-              ),
-            ),
-            const SizedBox(height: 10),
-            const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 40), 
-              child: TextField(
-                decoration:  InputDecoration(
-                  labelText: 'Modelo do Veículo',
-                  border: OutlineInputBorder(),
-                ),
-              ),
-            ),
-            const SizedBox(height: 10),
-            const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 40), 
-              child: TextField(
-                decoration:  InputDecoration(
-                  labelText: 'Placa do Veículo',
-                  border: OutlineInputBorder(),
-                ),
-              ),
-            ),
+            
+            
           ],
         ),
       ),

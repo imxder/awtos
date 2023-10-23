@@ -6,7 +6,7 @@ class EmailField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const TextField(   
-      
+      keyboardType: TextInputType.emailAddress,
       decoration: InputDecoration(
           hintText: 'Email:',
           enabled: true,

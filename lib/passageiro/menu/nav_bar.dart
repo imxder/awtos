@@ -1,5 +1,5 @@
+import 'package:awtos/login/login.view.dart';
 import 'package:awtos/passageiro/menu/editarPerfil.view.dart';
-import 'package:awtos/selectmode.dart';
 import 'package:flutter/material.dart';
 
 class NavBar extends StatefulWidget {
@@ -77,7 +77,7 @@ class _NavBarState extends State<NavBar> {
             onTap: () {
               Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => const SelectMode(),
+                    builder: (context) => const LoginView(),
                   ),
                 );
             },

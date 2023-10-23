@@ -13,12 +13,19 @@ class _PasswordFieldState extends State<PasswordField> {
     return const TextField(
       obscureText: true,
       decoration: InputDecoration(
-        labelText: 'Senha',
+       
         hintText: 'Senha',
         enabled: true,
-        border: OutlineInputBorder(
+        enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(
-            color: Color.fromARGB(255, 255, 255, 255),
+            color:  Colors.grey, // Cor da borda quando o campo não está selecionado
+            width: 1.5, // Aumenta a largura da borda
+          ),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.grey,
+            width: 1.5, // Cor que você deseja quando o campo estiver selecionado
           ),
         ),
       ),

@@ -49,6 +49,9 @@ class MapSampleState extends State<MapSample> {
               onMapCreated: (GoogleMapController controller) {
                 _controller.complete(controller);
               },
+              myLocationButtonEnabled: false,  
+              compassEnabled: false, 
+              zoomControlsEnabled: false,   
             ),
           ),
         ],

@@ -1,20 +1,18 @@
-import 'package:awtos/passageiro/login/widgets/fogetPasswordField.widget.dart';
-import 'package:awtos/passageiro/login/widgets/logo.widget.dart';
-import 'package:awtos/passageiro/login/widgets/passwordField.widget.dart';
+import 'package:awtos/login/widgets/fogetPasswordField.widget.dart';
+import 'package:awtos/login/widgets/logo.widget.dart';
 import 'package:flutter/material.dart';
-import 'package:awtos/passageiro/login/widgets/emailField.widget.dart';
-import 'package:awtos/passageiro/login/widgets/loginButton.widget.dart';
+import 'package:awtos/login/widgets/emailField.widget.dart';
+import 'package:awtos/login/widgets/loginButton.widget.dart';
+import 'package:awtos/login/widgets/passwordField.widget.dart';
 
-
-
-class LoginPassageiroView extends StatefulWidget {
-  const LoginPassageiroView({super.key});
+class LoginView extends StatefulWidget {
+  const LoginView({super.key});
 
   @override
-  State<LoginPassageiroView> createState() => _LoginPassageiroViewState();
+  State<LoginView> createState() => _LoginViewState();
 }
 
-class _LoginPassageiroViewState extends State<LoginPassageiroView> {
+class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,7 +58,9 @@ class _LoginPassageiroViewState extends State<LoginPassageiroView> {
                     padding: EdgeInsets.symmetric(horizontal: 40), 
                     child: LoginButton(),
                   ),
+                  SizedBox(height: 17),
                   ForgetPasswordButton(),
+                  
                 ],    
               ),
             ),

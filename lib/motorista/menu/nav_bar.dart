@@ -1,6 +1,7 @@
 
+import 'package:awtos/login/login.view.dart';
 import 'package:awtos/motorista/menu/motorista.view.dart';
-import 'package:awtos/selectmode.dart';
+
 import 'package:flutter/material.dart';
 
 class NavBarMotorista extends StatefulWidget {
@@ -39,7 +40,7 @@ class _NavBarMotoristaState extends State<NavBarMotorista> {
           ),
           ListTile(
             leading: const Icon(Icons.person,
-            color:  Color.fromARGB(255, 98, 16, 8)),
+            color: Color.fromARGB(255, 98, 16, 8)),
             title: const Text('Perfil'),
             onTap: () {
               Navigator.of(context).push(
@@ -78,7 +79,7 @@ class _NavBarMotoristaState extends State<NavBarMotorista> {
             onTap: () {
               Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => const SelectMode(),
+                    builder: (context) => const LoginView(),
                   ),
                 );
             },

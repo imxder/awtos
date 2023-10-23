@@ -15,12 +15,18 @@ class _EmailFieldState extends State<EmailField> {
       
       decoration: InputDecoration(
         
-        labelText: 'Email',
         hintText: 'Email',
         enabled: true,
-        border: OutlineInputBorder(
+        enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(
-            color: Color.fromARGB(255, 29, 81, 124),
+            color:  Colors.grey, // Cor da borda quando o campo não está selecionado
+            width: 1.5, // Aumenta a largura da borda
+          ),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.grey,
+            width: 1.5, // Cor que você deseja quando o campo estiver selecionado
           ),
         ),
       ),

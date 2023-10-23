@@ -1,6 +1,6 @@
 
-import 'package:awtos/passageiro/login/login.view.dart';
-import 'package:awtos/motorista/login/login.view.dart';
+import 'package:awtos/motorista/cadastro/cadastro.view.dart';
+import 'package:awtos/passageiro/cadastro/cadastro.view.dart';
 import 'package:flutter/material.dart';
 
 class SelectButton extends StatefulWidget {
@@ -23,7 +23,7 @@ class _SelectButtonState extends State<SelectButton> {
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => const LoginPassageiroView(),
+                  builder: (context) => const CadastroPassageiroView()
                 ),
               );
             },
@@ -45,7 +45,7 @@ class _SelectButtonState extends State<SelectButton> {
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => const LoginMotoristaView(),
+                  builder: (context) => const CadastroMotoristaView()
                 ),
               );
             },
@@ -59,6 +59,17 @@ class _SelectButtonState extends State<SelectButton> {
               padding: MaterialStateProperty.all(const EdgeInsets.symmetric(horizontal: 20.0)),
             ),
             child: const Text('MOTORISTA'),
+          ),
+        ),
+        const SizedBox(height: 250),
+        const Text('Powered by AWTOS.',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 12,
+            fontFamily: 'Raleway',
+            fontWeight: FontWeight.bold,
+            color: Color.fromRGBO(1, 28, 105, 0.9),
+            decoration: TextDecoration.none,
           ),
         ),
       ],

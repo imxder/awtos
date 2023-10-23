@@ -12,14 +12,11 @@ class _LogoSelectModeState extends State<LogoSelectMode> {
   Widget build(BuildContext context) {
     
     return const Center(
-      child: Text(
-        'AWTOS',
-        style: TextStyle(
-          fontFamily: 'Raleway',
-          fontSize: 55,
-          fontWeight: FontWeight.bold,
-          color: Color.fromARGB(255, 0, 41, 123),
-        ),
+      child: Image(
+        image: AssetImage('assets/images/logocatolica.png'),
+        width: 150,
+        height: 150,
+        color:  Color.fromARGB(255, 98, 0, 0),
       ),
     );
   }

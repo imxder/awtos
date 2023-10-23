@@ -1,15 +1,4 @@
-import 'package:awtos/passageiro/cadastro/widgets/descriptionText.widget.dart';
-import 'package:awtos/passageiro/cadastro/widgets/matriculaField.widget.dart';
-import 'package:awtos/passageiro/cadastro/widgets/neighborhoodField.widget.dart';
-import 'package:awtos/passageiro/cadastro/widgets/dataNascimento.widget.dart';
-import 'package:awtos/passageiro/cadastro/widgets/addressField.widget.dart';
-import 'package:awtos/passageiro/cadastro/widgets/nameField.widget.dart';
-import 'package:awtos/passageiro/cadastro/widgets/streetNameField.widget.dart';
-import 'package:awtos/passageiro/cadastro/widgets/termos.widget.dart';
-import 'package:awtos/passageiro/cadastro/widgets/titulo.widget.dart';
-import 'package:awtos/passageiro/cadastro/widgets/validaEmailField.widget.dart';
-import 'package:awtos/passageiro/cadastro/widgets/emailField.widget.dart';
-import 'package:awtos/passageiro/login/login.view.dart';
+import 'package:awtos/passageiro/home/home.view.dart';
 import 'package:flutter/material.dart';
 
 class CadastroPassageiroView extends StatefulWidget {
@@ -31,111 +20,131 @@ class _CadastroPassageiroViewState extends State<CadastroPassageiroView> {
           style: TextStyle(
             fontSize: 22,
             fontWeight: FontWeight.normal,
-            color: Color.fromRGBO(1, 28, 105, 0.9),
+            color: Color.fromRGBO(255, 255, 255, 1),
           ),
         ),
-        backgroundColor: const Color.fromARGB(255, 235, 235, 235),
-        
+        backgroundColor: const Color.fromARGB(255, 0, 44, 125),
         leading: IconButton(
           icon: const Icon(
             Icons.arrow_back_outlined,
-            color:  Color.fromRGBO(1, 28, 105, 0.9), 
+            color:  Color.fromRGBO(255, 255, 255, 1), 
           ),
           onPressed: () {
             Navigator.of(context).pop();
           },
         ),
       ),
-  
-      body: _body(),
-      
-      bottomNavigationBar: BottomAppBar(
-        color: const Color.fromARGB(255, 0, 44, 125),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.end, // Centraliza os elementos horizontalmente
+
+      body: Padding (
+        padding: const EdgeInsets.all(25.0),
+        child: Column(
           children: [
-            const Spacer(),
-            const SizedBox(width: 50),
+            const SizedBox(height: 50),
             const Text(
-              'Confirmar',   
+              'AWTOS',
               style: TextStyle(
-                fontSize: 20,
-                color: Color.fromRGBO(255, 255, 255, 1),
+                fontFamily: 'Raleway',
+                fontSize: 55,
+                fontWeight: FontWeight.bold,
+                color: const Color.fromARGB(255, 0, 44, 125),
               ),
             ),
-            const Spacer(),
-            IconButton(
-              icon: const Icon(Icons.arrow_forward_outlined),
-              color: Colors.white,
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const LoginPassageiroView(),
+            const SizedBox(height: 50),
+            const TextField(
+              decoration: InputDecoration(
+       
+              hintText: 'Nome Completo',
+              enabled: true,
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color:  Color.fromARGB(255, 0, 44, 125), // Cor da borda quando o campo não está selecionado
+                    width: 1.5, // Aumenta a largura da borda
                   ),
-                );
-              },
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color:  Color.fromARGB(255, 0, 44, 125), 
+                    width: 1.5,// Cor que você deseja quando o campo estiver selecionado
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 10),
+            const TextField(
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecoration(
+           
+              hintText: 'Email',
+              enabled: true,
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Color.fromARGB(255, 0, 44, 125), // Cor da borda quando o campo não está selecionado
+                    width: 1.5, // Aumenta a largura da borda
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Color.fromARGB(255, 0, 44, 125),
+                    width: 1.5, // Cor que você deseja quando o campo estiver selecionado
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 10),
+            const TextField(
+              obscureText: true,
+              decoration: InputDecoration(
+               
+                hintText: 'Senha',
+                enabled: true,
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color:  Color.fromARGB(255, 0, 44, 125), // Cor da borda quando o campo não está selecionado
+                    width: 1.5, // Aumenta a largura da borda
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Color.fromARGB(255, 0, 44, 125),
+                    width: 1.5, // Cor que você deseja quando o campo estiver selecionado
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 35),
+            ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const MapSample(),
+                )
+              );
+            },
+            style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              backgroundColor:const Color.fromARGB(255, 0, 44, 125),
+            ).copyWith(
+              minimumSize: MaterialStateProperty.all(const Size(0, 40)),
+              padding: MaterialStateProperty.all(const EdgeInsets.symmetric(horizontal: 50.0, vertical: 15.0)),
+            ),
+            child: const Text('Criar Conta'),
+            ),
+            const SizedBox(height: 225),
+            const Text('Powered by AWTOS.',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 12,
+                fontFamily: 'Raleway',
+                fontWeight: FontWeight.bold,
+                color: Color.fromRGBO(1, 28, 105, 0.9),
+                decoration: TextDecoration.none,
+              ),
             ),
           ],
         ),
       ),
-      
-    );
-  }
-
-  _body() {
-    return ListView(
-      shrinkWrap: true,
-      padding: const EdgeInsets.all(12),
-      children: const [
-        Titulo(),
-        SizedBox(height: 10),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15), 
-          child: NomeField(),
-        ),
-        SizedBox(height: 10),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15), 
-          child: EmailField(),
-        ),
-        SizedBox(height: 10),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15), 
-          child: ValidaEmail(),
-        ),
-        SizedBox(height: 15),
-        Padding(
-          padding: EdgeInsets.fromLTRB(35, 0, 15, 15),
-          child: DataNascimento(),
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15), 
-          child: AddressField(),
-        ),
-        SizedBox(height: 10),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15), 
-          child: NeighborhoodField(),
-        ),
-         SizedBox(height: 10),
-        Padding(
-          padding: EdgeInsets.fromLTRB(15, 0, 40, 15), 
-          child: StreetNameField(),
-        ),
-        SizedBox(height: 10),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15), 
-          child: DescriptionText(),
-        ),
-        SizedBox(height: 10),
-        Padding(
-          padding: EdgeInsets.fromLTRB(15, 0, 50, 15), 
-          child: MatriculaField(),
-        ),
-        TermosCheck(),
-      ],
-      
-    );
-    
+    ); 
   }
 }

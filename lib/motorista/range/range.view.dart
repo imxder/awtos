@@ -90,6 +90,9 @@ class _MapRangeState extends State<MapRange> {
               onMapCreated: (GoogleMapController controller) {
                 _controller.complete(controller);
               },
+              myLocationButtonEnabled: false,  
+              compassEnabled: false, 
+              zoomControlsEnabled: false,
             ),
           ),
         ],
