@@ -28,7 +28,7 @@ class _SelectModeState extends State<SelectMode> {
                   SizedBox(height: 20),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 50), 
-                    child: SelectButton(),
+                    child: SelectButton()
                   ),
                      
                 ],

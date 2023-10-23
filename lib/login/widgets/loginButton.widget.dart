@@ -48,7 +48,7 @@ class _LoginButtonState extends State<LoginButton> {
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => const MapSample()
+                    builder: (context) =>  MapSample()
                   ),
                 );
               },
