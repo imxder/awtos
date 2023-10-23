@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:awtos/passageiro/cadastro/firestorem.dart';
+import 'package:awtos/passageiro/cadastro/firestorep.dart';
 import 'package:awtos/passageiro/chats/chat.view.dart';
 import 'package:awtos/passageiro/menu/nav_bar.dart';
 
@@ -33,7 +33,7 @@ class MapSampleState extends State<MapSample> {
         content: TextField(
           controller: textController,
           decoration: const InputDecoration(
-            labelText: 'Local',
+            labelText: 'Digite o Local de Saída',
           ),
         ),
         actions: [
@@ -97,7 +97,7 @@ class MapSampleState extends State<MapSample> {
             color: Colors.white, // Cor de fundo do contêiner
             padding: const EdgeInsets.all(8),
             child: StreamBuilder<QuerySnapshot>(
-                stream: FirestoreService().getPassageirosStrem(),
+                stream: FirestoreService().getPassageirosStream(),
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
                     List passageirosList = snapshot.data!.docs;

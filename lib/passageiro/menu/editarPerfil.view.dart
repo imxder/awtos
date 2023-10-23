@@ -1,6 +1,6 @@
 import 'dart:typed_data';
 
-import 'package:awtos/passageiro/cadastro/firestorem.dart';
+import 'package:awtos/passageiro/cadastro/firestorep.dart';
 import 'package:awtos/passageiro/menu/utils.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -68,7 +68,7 @@ class _PerfilPassageiroState extends State<PerfilPassageiro> {
                 ],
               ),
               StreamBuilder<QuerySnapshot>(
-                stream: firestoreService.getPassageirosStrem(),
+                stream: firestoreService.getPassageirosStream(),
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
                     List<QueryDocumentSnapshot> passageirosList = snapshot.data!.docs;

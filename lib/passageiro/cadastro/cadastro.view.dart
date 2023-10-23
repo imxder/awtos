@@ -1,4 +1,4 @@
-import 'package:awtos/passageiro/cadastro/firestorem.dart';
+import 'package:awtos/passageiro/cadastro/firestorep.dart';
 import 'package:awtos/passageiro/home/home.view.dart';
 import 'package:flutter/material.dart';
 

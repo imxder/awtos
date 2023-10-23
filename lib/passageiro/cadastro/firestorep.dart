@@ -20,7 +20,7 @@ class FirestoreService{
   
   // READ
   
-  Stream<QuerySnapshot> getPassageirosStrem(){
+  Stream<QuerySnapshot> getPassageirosStream(){
     final passageirosStream = 
       passageiros.orderBy('timestamp', descending: true).snapshots();
 
