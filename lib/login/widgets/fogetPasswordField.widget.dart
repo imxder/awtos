@@ -36,7 +36,7 @@ class _ForgetPasswordButtonState extends State<ForgetPasswordButton> {
             // Coloque aqui a lógica para lidar com o "Esqueceu a senha?"
           },
           child: const Text(
-            "Não tem uma conta? Cadastre-se",
+            "Criar Conta",
             style: TextStyle(
               color: Color.fromARGB(255, 29, 81, 124), // Cor do texto
               decoration: TextDecoration.none,
