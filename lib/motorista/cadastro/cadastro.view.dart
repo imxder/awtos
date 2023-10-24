@@ -1,5 +1,5 @@
+import 'package:awtos/login/login.view.dart';
 import 'package:awtos/motorista/cadastro/firestorem.dart';
-import 'package:awtos/motorista/range/range.view.dart';
 import 'package:flutter/material.dart';
 
 class CadastroMotoristaView extends StatefulWidget {
@@ -38,7 +38,11 @@ class CadastroMotoristaView extends StatefulWidget {
             color: Color.fromRGBO(255, 255, 255, 1),
           ),
           onPressed: () {
-            Navigator.of(context).pop();
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => const LoginView(),
+              ),
+            );
           },
         ),
       ),
@@ -154,7 +158,7 @@ class CadastroMotoristaView extends StatefulWidget {
                 _addressController.clear();
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => const MapRange(),
+                    builder: (context) => const LoginView(),
                   ),
                 );
               },
@@ -162,7 +166,7 @@ class CadastroMotoristaView extends StatefulWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8.0),
                 ),
-                backgroundColor:Color.fromARGB(255, 98, 16, 8),
+                backgroundColor:const Color.fromARGB(255, 98, 16, 8),
               ).copyWith(
                 minimumSize: MaterialStateProperty.all(const Size(0, 40)),
                 padding: MaterialStateProperty.all(

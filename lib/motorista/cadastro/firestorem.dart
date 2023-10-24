@@ -50,7 +50,9 @@ class FirestoreServiceMotorista{
   // DELETE
 
 
-
+  Future<void> deleteMotorista(String docID) {
+    return motoristas.doc(docID).delete();
+  }
 
 
 
