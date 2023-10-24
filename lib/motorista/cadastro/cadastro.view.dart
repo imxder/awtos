@@ -31,7 +31,7 @@ class CadastroMotoristaView extends StatefulWidget {
             color: Color.fromRGBO(255, 255, 255, 1),
           ),
         ),
-        backgroundColor: const Color.fromARGB(255, 0, 44, 125),
+        backgroundColor: const Color.fromARGB(255, 98, 16, 8),
         leading: IconButton(
           icon: const Icon(
             Icons.arrow_back_outlined,
@@ -53,7 +53,7 @@ class CadastroMotoristaView extends StatefulWidget {
                 fontFamily: 'Raleway',
                 fontSize: 55,
                 fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 0, 44, 125),
+                color: Color.fromARGB(255, 98, 16, 8),
               ),
             ),
             const SizedBox(height: 50),
@@ -64,13 +64,13 @@ class CadastroMotoristaView extends StatefulWidget {
                 enabled: true,
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color.fromARGB(255, 0, 44, 125),
+                    color: Color.fromARGB(255, 98, 16, 8),
                     width: 1.5,
                   ),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color.fromARGB(255, 0, 44, 125),
+                    color: Color.fromARGB(255, 98, 16, 8),
                     width: 1.5,
                   ),
                 ),
@@ -85,13 +85,13 @@ class CadastroMotoristaView extends StatefulWidget {
                 enabled: true,
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color.fromARGB(255, 0, 44, 125),
+                    color: Color.fromARGB(255, 98, 16, 8),
                     width: 1.5,
                   ),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color.fromARGB(255, 0, 44, 125),
+                    color: Color.fromARGB(255, 98, 16, 8),
                     width: 1.5,
                   ),
                 ),
@@ -106,13 +106,13 @@ class CadastroMotoristaView extends StatefulWidget {
                 enabled: true,
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color.fromARGB(255, 0, 44, 125),
+                    color: Color.fromARGB(255, 98, 16, 8),
                     width: 1.5,
                   ),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color.fromARGB(255, 0, 44, 125),
+                    color: Color.fromARGB(255, 98, 16, 8),
                     width: 1.5,
                   ),
                 ),
@@ -126,13 +126,13 @@ class CadastroMotoristaView extends StatefulWidget {
                 enabled: true,
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color.fromARGB(255, 0, 44, 125),
+                    color: Color.fromARGB(255, 98, 16, 8),
                     width: 1.5,
                   ),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color.fromARGB(255, 0, 44, 125),
+                    color: Color.fromARGB(255, 98, 16, 8),
                     width: 1.5,
                   ),
                 ),
@@ -162,7 +162,7 @@ class CadastroMotoristaView extends StatefulWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8.0),
                 ),
-                backgroundColor: const Color.fromARGB(255, 0, 44, 125),
+                backgroundColor:Color.fromARGB(255, 98, 16, 8),
               ).copyWith(
                 minimumSize: MaterialStateProperty.all(const Size(0, 40)),
                 padding: MaterialStateProperty.all(

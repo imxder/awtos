@@ -20,7 +20,7 @@ class FirestoreServiceMotorista{
   
   // READ
   
-  Stream<QuerySnapshot> getMotoristasStream(){
+  Stream<QuerySnapshot> getMotoristaStream(){
     final motoristasStream = 
       motoristas.orderBy('timestamp', descending: true).snapshots();
 
@@ -29,7 +29,7 @@ class FirestoreServiceMotorista{
 
   // UPDATE
   
-  Future<void> updateMotoristas(String docID, String newAddress) {
+  Future<void> updateMotorista(String docID, String newAddress) {
     return motoristas.doc(docID).update({
       
       'address': newAddress,

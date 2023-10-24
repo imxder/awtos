@@ -1,18 +1,20 @@
-import 'package:awtos/motorista/menu/nav_bar.dart';
+import 'package:awtos/motorista/cadastro/firestorem.dart';
 import 'package:awtos/motorista/passageiros/passageiros.view.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:awtos/motorista/menu/nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapRange extends StatefulWidget {
-  const MapRange({super.key});
+  const MapRange({Key? key}) : super(key: key);
 
   @override
   State<MapRange> createState() => _MapRangeState();
 }
 
 class _MapRangeState extends State<MapRange> {
- final Completer<GoogleMapController> _controller =
+  final Completer<GoogleMapController> _controller =
       Completer<GoogleMapController>();
 
   static const CameraPosition _kGooglePlex = CameraPosition(
@@ -20,54 +22,82 @@ class _MapRangeState extends State<MapRange> {
     zoom: 15.4746,
   );
 
+  final TextEditingController textController = TextEditingController();
+   
+  void openBox({docID}) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        content: TextField(
+          controller: textController,
+          decoration: const InputDecoration(
+            labelText: 'Digite o Local de Saída',
+          ),
+        ),
+        actions: [
+          ElevatedButton(
+            onPressed: () {
+              FirestoreServiceMotorista().updateMotorista(docID, textController.text);
+
+              Navigator.of(context).pop();
+            },
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all<Color>(
+                const Color.fromARGB(255, 0, 44, 125),
+              ),
+            ),
+            child: const Text('Editar Local'),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: const Align(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              'AWTOS',
-              style: TextStyle(
-                fontFamily: 'Raleway',
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
+          alignment: Alignment.centerLeft,
+          child: Text(
+            'AWTOS',
+            style:  TextStyle(
+              fontFamily: 'Raleway',
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
             ),
           ),
-        
+        ),
         backgroundColor: const Color.fromARGB(255, 98, 16, 8),
       ),
       endDrawer: const NavBarMotorista(),
-      
+
       body: Column(
         children: [
           Container(
-            color: const Color.fromARGB(230, 243, 243, 242), // Cor da barra abaixo da AppBar
-            height: 60, // Altura da barra abaixo da AppBar
+            color: const Color.fromARGB(230, 243, 243, 242),
+            height: 60,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 IconButton(
-                  icon: const Icon(Icons.arrow_back), // Ícone de voltar (seta para a esquerda)
+                  icon: const Icon(Icons.arrow_back),
                   color: const Color.fromARGB(255, 98, 16, 8),
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
                 ),
-               
                 const Expanded(
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center, // Centraliza os elementos no espaço disponível
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(
                         Icons.satellite_rounded,
                         color:  Color.fromARGB(255, 98, 16, 8),
                       ),
-                      SizedBox(width: 10), // Ajuste o espaçamento conforme necessário
+                      SizedBox(width: 10),
                       Text(
                         'Raio de Pesquisa',
                         style: TextStyle(
@@ -82,33 +112,75 @@ class _MapRangeState extends State<MapRange> {
               ],
             ),
           ),
-
           Expanded(
-            child:GoogleMap(
-              mapType: MapType.normal,
-              initialCameraPosition: _kGooglePlex,
-              onMapCreated: (GoogleMapController controller) {
-                _controller.complete(controller);
-              },
-              myLocationButtonEnabled: false,  
-              compassEnabled: false, 
-              zoomControlsEnabled: false,
+            child: Stack(
+              children: [
+                GoogleMap(
+                  mapType: MapType.normal,
+                  initialCameraPosition: _kGooglePlex,
+                  onMapCreated: (GoogleMapController controller) {
+                    _controller.complete(controller);
+                  },
+                  myLocationButtonEnabled: false,
+                  compassEnabled: false,
+                  zoomControlsEnabled: false,
+                ),
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Container(
+                    color: Colors.white,
+                    padding: const EdgeInsets.all(8),
+                    child: StreamBuilder<QuerySnapshot>(
+                      stream: FirestoreServiceMotorista().getMotoristaStream(),
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          List motoristasList = snapshot.data!.docs;
+                          if (motoristasList.isNotEmpty) {
+                            DocumentSnapshot lastDocument = motoristasList.first;
+                            Map<String, dynamic> data = lastDocument.data() as Map<String, dynamic>;
+                            String docID = lastDocument.id;
+                            String addressText = data['address'];
+
+                            return ListTile(
+                              title: Text(
+                                addressText,
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                              ),
+                              trailing: IconButton(
+                                onPressed: () => openBox(docID: docID),
+                                icon: const Icon(Icons.edit),
+                              ),
+                            );
+                          } else {
+                            return const Text('Nenhum registro encontrado.');
+                          }
+                        } else {
+                          return const Text('Loading...');
+                        }
+                      },
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ],
       ),
       bottomNavigationBar: BottomAppBar(
-        color:  Color.fromARGB(255, 98, 16, 8),
+        color: const Color.fromARGB(255, 98, 16, 8),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.end, // Centraliza os elementos horizontalmente
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            const Spacer(),
+           const Spacer(),
             const SizedBox(width: 50),
             const Text(
-              'Confirmar',   
+              'Confirmar',
               style: TextStyle(
                 fontSize: 20,
-                color: Color.fromRGBO(255, 255, 255, 1),
+                color: Colors.white,
               ),
             ),
             const Spacer(),

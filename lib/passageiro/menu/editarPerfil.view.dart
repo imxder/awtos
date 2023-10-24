@@ -1,5 +1,4 @@
 import 'dart:typed_data';
-
 import 'package:awtos/passageiro/cadastro/firestorep.dart';
 import 'package:awtos/passageiro/menu/utils.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -16,10 +15,10 @@ class PerfilPassageiro extends StatefulWidget {
 class _PerfilPassageiroState extends State<PerfilPassageiro> {
   Uint8List? _image;
   final FirestoreService firestoreService = FirestoreService();
-  final TextEditingController _NovoNomeController = TextEditingController();
-  final TextEditingController _NovoEmailController = TextEditingController();
-  final TextEditingController _NovaSenhaController = TextEditingController();
-  final TextEditingController _NovoAddressController = TextEditingController();
+  final TextEditingController _novoNomeController = TextEditingController();
+  final TextEditingController _novoEmailController = TextEditingController();
+  final TextEditingController _novaSenhaController = TextEditingController();
+  final TextEditingController _novoAddressController = TextEditingController();
 
   @override
   void initState() {
@@ -78,10 +77,10 @@ class _PerfilPassageiroState extends State<PerfilPassageiro> {
                       Map<String, dynamic> data = lastDocument.data() as Map<String, dynamic>;
                       String docID = lastDocument.id;
 
-                      _NovoNomeController.text = data['nome'];
-                      _NovoEmailController.text = data['email'];
-                      _NovaSenhaController.text = data['senha'];
-                      _NovoAddressController.text = data['address'];
+                      _novoNomeController.text = data['nome'];
+                      _novoEmailController.text = data['email'];
+                      _novaSenhaController.text = data['senha'];
+                      _novoAddressController.text = data['address'];
 
                       return Column(
                         children: [
@@ -91,7 +90,7 @@ class _PerfilPassageiroState extends State<PerfilPassageiro> {
                               children: [
                                 SizedBox(height: 10.0),
                                 TextField(
-                                  controller: _NovoNomeController,
+                                  controller: _novoNomeController,
                                   decoration: const InputDecoration(
                                     labelText: 'Nome Completo',
                                     hintText: 'Nome Completo',
@@ -112,7 +111,7 @@ class _PerfilPassageiroState extends State<PerfilPassageiro> {
                                 ),
                                 const SizedBox(height: 10),
                                 TextField(
-                                  controller: _NovoEmailController,
+                                  controller: _novoEmailController,
                                   keyboardType: TextInputType.emailAddress,
                                   decoration: const InputDecoration(
                                     labelText: 'Email',
@@ -134,7 +133,7 @@ class _PerfilPassageiroState extends State<PerfilPassageiro> {
                                 ),
                                 const SizedBox(height: 10),
                                 TextField(
-                                  controller: _NovaSenhaController,
+                                  controller: _novaSenhaController,
                                   obscureText: true,
                                   decoration: const InputDecoration(
                                     labelText: 'Senha',
@@ -156,7 +155,7 @@ class _PerfilPassageiroState extends State<PerfilPassageiro> {
                                 ),
                                 const SizedBox(height: 10),
                                 TextField(
-                                  controller: _NovoAddressController,
+                                  controller: _novoAddressController,
                                   decoration: const InputDecoration(
                                     labelText: 'Endereço',
                                     hintText: 'Endereço',
@@ -181,10 +180,10 @@ class _PerfilPassageiroState extends State<PerfilPassageiro> {
                           const SizedBox(height: 10),
                           ElevatedButton(
                             onPressed: () {
-                              String novoNome = _NovoNomeController.text;
-                              String novoEmail = _NovoEmailController.text;
-                              String novaSenha = _NovaSenhaController.text;
-                              String novoAddress = _NovoAddressController.text;
+                              String novoNome = _novoNomeController.text;
+                              String novoEmail = _novoEmailController.text;
+                              String novaSenha = _novaSenhaController.text;
+                              String novoAddress = _novoAddressController.text;
 
                               firestoreService.updatePassageiro2(docID, novoNome, novoEmail, novaSenha, novoAddress)
                                   .then((_) {

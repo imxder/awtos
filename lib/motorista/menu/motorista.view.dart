@@ -15,15 +15,15 @@ class PerfilMotorista extends StatefulWidget {
 class _PerfilMotoristaState extends State<PerfilMotorista> {
   Uint8List? _image;
   final FirestoreServiceMotorista firestoreServiceMotorista = FirestoreServiceMotorista();
-  final TextEditingController _NovoNomeController = TextEditingController();
-  final TextEditingController _NovoEmailController = TextEditingController();
-  final TextEditingController _NovaSenhaController = TextEditingController();
-  final TextEditingController _NovoAddressController = TextEditingController();
+  final TextEditingController _novoNomeController = TextEditingController();
+  final TextEditingController _novoEmailController = TextEditingController();
+  final TextEditingController _novaSenhaController = TextEditingController();
+  final TextEditingController _novoAddressController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    // Inicialize os valores dos controladores e imagem, se necessário.
+    
   }
 
   void selectImage() async {
@@ -38,181 +38,179 @@ class _PerfilMotoristaState extends State<PerfilMotorista> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Editar Perfil'),
-        backgroundColor: const Color.fromARGB(255, 0, 44, 125),
+        backgroundColor: const Color.fromARGB(255, 98, 16, 8),
       ),
-      body: Container(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              const SizedBox(height: 40.0),
-              Stack(
-                children: [
-                  _image != null
-                      ? CircleAvatar(
-                          radius: 50,
-                          backgroundImage: MemoryImage(_image!),
-                        )
-                      : const CircleAvatar(
-                          radius: 50,
-                          backgroundImage: AssetImage('assets/images/emptyprofile.png'),
-                        ),
-                  Positioned(
-                    bottom: -10,
-                    left: 59,
-                    child: IconButton(
-                      onPressed: selectImage,
-                      icon: const Icon(Icons.add_a_photo),
-                    ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(height: 40.0),
+            Stack(
+              children: [
+                _image != null
+                    ? CircleAvatar(
+                        radius: 50,
+                        backgroundImage: MemoryImage(_image!),
+                      )
+                    : const CircleAvatar(
+                        radius: 50,
+                        backgroundImage: AssetImage('assets/images/emptyprofile.png'),
+                      ),
+                Positioned(
+                  bottom: -10,
+                  left: 59,
+                  child: IconButton(
+                    onPressed: selectImage,
+                    icon: const Icon(Icons.add_a_photo),
                   ),
-                ],
-              ),
-              StreamBuilder<QuerySnapshot>(
-                stream: firestoreServiceMotorista.getMotoristasStream(),
-                builder: (context, snapshot) {
-                  if (snapshot.hasData) {
-                    List<QueryDocumentSnapshot> motoristasList = snapshot.data!.docs;
+                ),
+              ],
+            ),
+            StreamBuilder<QuerySnapshot>(
+              stream: firestoreServiceMotorista.getMotoristaStream(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  List<QueryDocumentSnapshot> motoristasList = snapshot.data!.docs;
 
-                    if (motoristasList.isNotEmpty) {
-                      QueryDocumentSnapshot lastDocument = motoristasList.first;
-                      Map<String, dynamic> data = lastDocument.data() as Map<String, dynamic>;
-                      String docID = lastDocument.id;
+                  if (motoristasList.isNotEmpty) {
+                    QueryDocumentSnapshot lastDocument = motoristasList.first;
+                    Map<String, dynamic> data = lastDocument.data() as Map<String, dynamic>;
+                    String docID = lastDocument.id;
 
-                      _NovoNomeController.text = data['nome'];
-                      _NovoEmailController.text = data['email'];
-                      _NovaSenhaController.text = data['senha'];
-                      _NovoAddressController.text = data['address'];
+                    _novoNomeController.text = data['nome'];
+                    _novoEmailController.text = data['email'];
+                    _novaSenhaController.text = data['senha'];
+                    _novoAddressController.text = data['address'];
 
-                      return Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(30.0),
-                            child: Column(
-                              children: [
-                                SizedBox(height: 10.0),
-                                TextField(
-                                  controller: _NovoNomeController,
-                                  decoration: const InputDecoration(
-                                    labelText: 'Nome Completo',
-                                    hintText: 'Nome Completo',
-                                    enabled: true,
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color.fromARGB(255, 0, 44, 125),
-                                        width: 1.5,
-                                      ),
+                    return Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(30.0),
+                          child: Column(
+                            children: [
+                              const SizedBox(height: 10.0),
+                              TextField(
+                                controller: _novoNomeController,
+                                decoration: const InputDecoration(
+                                  labelText: 'Nome Completo',
+                                  hintText: 'Nome Completo',
+                                  enabled: true,
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color.fromARGB(255, 98, 16, 8),
+                                      width: 1.5,
                                     ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color.fromARGB(255, 0, 44, 125),
-                                        width: 1.5,
-                                      ),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color:  Color.fromARGB(255, 98, 16, 8),
+                                      width: 1.5,
                                     ),
                                   ),
                                 ),
-                                const SizedBox(height: 10),
-                                TextField(
-                                  controller: _NovoEmailController,
-                                  keyboardType: TextInputType.emailAddress,
-                                  decoration: const InputDecoration(
-                                    labelText: 'Email',
-                                    hintText: 'Email',
-                                    enabled: true,
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color.fromARGB(255, 0, 44, 125),
-                                        width: 1.5,
-                                      ),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color.fromARGB(255, 0, 44, 125),
-                                        width: 1.5,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                const SizedBox(height: 10),
-                                TextField(
-                                  controller: _NovaSenhaController,
-                                  obscureText: true,
-                                  decoration: const InputDecoration(
-                                    labelText: 'Senha',
-                                    hintText: 'Senha',
-                                    enabled: true,
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color.fromARGB(255, 0, 44, 125),
-                                        width: 1.5,
-                                      ),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color.fromARGB(255, 0, 44, 125),
-                                        width: 1.5,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                const SizedBox(height: 10),
-                                TextField(
-                                  controller: _NovoAddressController,
-                                  decoration: const InputDecoration(
-                                    labelText: 'Endereço',
-                                    hintText: 'Endereço',
-                                    enabled: true,
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color.fromARGB(255, 0, 44, 125),
-                                        width: 1.5,
-                                      ),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color.fromARGB(255, 0, 44, 125),
-                                        width: 1.5,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(height: 10),
-                          ElevatedButton(
-                            onPressed: () {
-                              String novoNome = _NovoNomeController.text;
-                              String novoEmail = _NovoEmailController.text;
-                              String novaSenha = _NovaSenhaController.text;
-                              String novoAddress = _NovoAddressController.text;
-
-                              firestoreServiceMotorista.updateMotoristas2(docID, novoNome, novoEmail, novaSenha, novoAddress)
-                                  .then((_) {
-                                    // Após a atualização bem-sucedida, você pode atualizar o Stream
-                                    setState(() {
-                                      // Execute um setState para forçar a reconstrução do StreamBuilder
-                                    });
-                                  });
-                            },
-                            style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all<Color>(
-                                const Color.fromARGB(255, 0, 44, 125),
                               ),
-                            ),
-                            child: const Text('Salvar Edições'),
+                              const SizedBox(height: 10),
+                              TextField(
+                                controller: _novoEmailController,
+                                keyboardType: TextInputType.emailAddress,
+                                decoration: const InputDecoration(
+                                  labelText: 'Email',
+                                  hintText: 'Email',
+                                  enabled: true,
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color.fromARGB(255, 98, 16, 8),
+                                      width: 1.5,
+                                    ),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color.fromARGB(255, 98, 16, 8),
+                                      width: 1.5,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(height: 10),
+                              TextField(
+                                controller: _novaSenhaController,
+                                obscureText: true,
+                                decoration: const InputDecoration(
+                                  labelText: 'Senha',
+                                  hintText: 'Senha',
+                                  enabled: true,
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color.fromARGB(255, 98, 16, 8),
+                                      width: 1.5,
+                                    ),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color.fromARGB(255, 98, 16, 8),
+                                      width: 1.5,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(height: 10),
+                              TextField(
+                                controller: _novoAddressController,
+                                decoration: const InputDecoration(
+                                  labelText: 'Endereço',
+                                  hintText: 'Endereço',
+                                  enabled: true,
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color.fromARGB(255, 98, 16, 8),
+                                      width: 1.5,
+                                    ),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color.fromARGB(255, 98, 16, 8),
+                                      width: 1.5,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
-                          const SizedBox(height: 50.0),
-                        ],
-                      );
-                    } else {
-                      return const Text('Nenhum registro encontrado.');
-                    }
+                        ),
+                        const SizedBox(height: 10),
+                        ElevatedButton(
+                          onPressed: () {
+                            String novoNome = _novoNomeController.text;
+                            String novoEmail = _novoEmailController.text;
+                            String novaSenha = _novaSenhaController.text;
+                            String novoAddress = _novoAddressController.text;
+
+                            firestoreServiceMotorista.updateMotoristas2(docID, novoNome, novoEmail, novaSenha, novoAddress)
+                                .then((_) {
+                                  
+                                  setState(() {
+                                    
+                                  });
+                                });
+                          },
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all<Color>(
+                              Color.fromARGB(255, 98, 16, 8),
+                            ),
+                          ),
+                          child: const Text('Salvar Edições'),
+                        ),
+                        const SizedBox(height: 50.0),
+                      ],
+                    );
                   } else {
-                    return const Text('Loading...');
+                    return const Text('Nenhum registro encontrado.');
                   }
-                },
-              )
-            ],
-          ),
+                } else {
+                  return const Text('Loading...');
+                }
+              },
+            )
+          ],
         ),
       ),
     );
