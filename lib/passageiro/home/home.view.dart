@@ -19,47 +19,72 @@ class MapSampleState extends State<MapSample> {
   final Completer<GoogleMapController> _controller =
       Completer<GoogleMapController>();
 
-  static const CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(-26.4669318, -49.1178001),
-    zoom: 15.4746,
-  );
-
+    static const CameraPosition _kGooglePlex = CameraPosition(
+      target: LatLng(-26.4669318, -49.1178001),
+      zoom: 15.4746,
+    );
+  
   final TextEditingController textController = TextEditingController();
-
-  void openBox({ docID}) {
+  
+    void openBox({docID}) {
     showDialog(
-      context: context, 
+      context: context,
       builder: (context) => AlertDialog(
-        content: TextField(
-          controller: textController,
-          decoration: const InputDecoration(
-            labelText: 'Digite o Local de Saída',
-          ),
+        content: Column(
+          mainAxisSize: MainAxisSize.min, 
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              'Digite o Novo Local de Saída:', 
+           
+              style: TextStyle(
+                fontSize: 13,
+                fontWeight: FontWeight.normal,
+                color:Color.fromARGB(255, 0, 44, 125),
+              ),
+            ),
+            const SizedBox(height: 10),
+             TextField(
+              controller: textController,
+              decoration: const InputDecoration(
+                enabled: true,
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Color.fromARGB(255, 0, 44, 125),
+                    width: 1.5,
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Color.fromARGB(255, 0, 44, 125),
+                    width: 1.5,
+                  ),
+                ),
+                labelStyle: TextStyle(
+                  color:Color.fromARGB(255, 0, 44, 125),
+                ),
+              ),
+            ),
+          ],
         ),
         actions: [
           ElevatedButton(
             onPressed: () {
               FirestoreService().updatePassageiro(docID, textController.text);
-                
-            
               Navigator.of(context).pop();
-            }, 
+            },
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all<Color>(
-              const Color.fromARGB(255, 0, 44, 125), 
+              const  Color.fromARGB(255, 0, 44, 125),
               ),
             ),
-            
-            child: const Text('Editar Local'),
-            
-            ),
-          
+            child: const Text('Salvar'),
+          ),
         ],
-      )
+      ),
     );
   }
-
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(

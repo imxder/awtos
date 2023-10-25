@@ -16,14 +16,14 @@ class _SelectModeState extends State<SelectMode> {
       children: [
         Expanded(
           child: Container(
-             color: Colors.white,
+            color: Colors.white,
             
             child: Center(
               child: ListView(
                 shrinkWrap: true,
                 padding: const EdgeInsets.all(12),
                 children: const [
-                  SizedBox(height: 250),
+                  SizedBox(height: 260),
                   LogoSelectMode(),
                   SizedBox(height: 20),
                   Padding(

@@ -111,6 +111,9 @@ class _PerfilPassageiroState extends State<PerfilPassageiro> {
                                       width: 1.5,
                                     ),
                                   ),
+                                  labelStyle: TextStyle(
+                                    color: Color.fromARGB(255, 0, 44, 125), 
+                                  ),
                                 ),
                               ),
                               const SizedBox(height: 10),
@@ -132,6 +135,9 @@ class _PerfilPassageiroState extends State<PerfilPassageiro> {
                                       color: Color.fromARGB(255, 0, 44, 125),
                                       width: 1.5,
                                     ),
+                                  ),
+                                  labelStyle: TextStyle(
+                                    color: Color.fromARGB(255, 0, 44, 125), 
                                   ),
                                 ),
                               ),
@@ -155,6 +161,9 @@ class _PerfilPassageiroState extends State<PerfilPassageiro> {
                                       width: 1.5,
                                     ),
                                   ),
+                                  labelStyle: TextStyle(
+                                    color: Color.fromARGB(255, 0, 44, 125), 
+                                  ),
                                 ),
                               ),
                               const SizedBox(height: 10),
@@ -175,6 +184,9 @@ class _PerfilPassageiroState extends State<PerfilPassageiro> {
                                       color: Color.fromARGB(255, 0, 44, 125),
                                       width: 1.5,
                                     ),
+                                  ),
+                                  labelStyle: TextStyle(
+                                    color: Color.fromARGB(255, 0, 44, 125), 
                                   ),
                                 ),
                               ),

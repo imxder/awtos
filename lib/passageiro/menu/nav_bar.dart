@@ -75,7 +75,7 @@ class _NavBarState extends State<NavBar> {
           const Spacer(), 
           GestureDetector(
             onTap: () {
-              Navigator.of(context).push(
+              Navigator.of(context).pushReplacement(
                   MaterialPageRoute(
                     builder: (context) => const LoginView(),
                   ),

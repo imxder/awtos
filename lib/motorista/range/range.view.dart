@@ -24,34 +24,64 @@ class _MapRangeState extends State<MapRange> {
 
   final TextEditingController textController = TextEditingController();
    
-  void openBox({docID}) {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        content: TextField(
-          controller: textController,
-          decoration: const InputDecoration(
-            labelText: 'Digite o Local de Saída',
+ void openBox({docID}) {
+  showDialog(
+    context: context,
+    builder: (context) => AlertDialog(
+      content: Column(
+        mainAxisSize: MainAxisSize.min, 
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            'Digite o Novo Local de Saída:', 
+         
+            style: TextStyle(
+              fontSize: 13,
+              fontWeight: FontWeight.normal,
+              color: Color.fromARGB(255, 98, 16, 8),
+            ),
           ),
-        ),
-        actions: [
-          ElevatedButton(
-            onPressed: () {
-              FirestoreServiceMotorista().updateMotorista(docID, textController.text);
-
-              Navigator.of(context).pop();
-            },
-            style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all<Color>(
-                const Color.fromARGB(255, 0, 44, 125),
+          const SizedBox(height: 10),
+           TextField(
+            controller: textController,
+            decoration: const InputDecoration(
+              enabled: true,
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color.fromARGB(255, 98, 16, 8),
+                  width: 1.5,
+                ),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color.fromARGB(255, 98, 16, 8),
+                  width: 1.5,
+                ),
+              ),
+              labelStyle: TextStyle(
+                color: Color.fromARGB(255, 98, 16, 8),
               ),
             ),
-            child: const Text('Editar Local'),
           ),
         ],
       ),
-    );
-  }
+      actions: [
+        ElevatedButton(
+          onPressed: () {
+            FirestoreServiceMotorista().updateMotorista(docID, textController.text);
+            Navigator.of(context).pop();
+          },
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all<Color>(
+              const Color.fromARGB(255, 98, 16, 8),
+            ),
+          ),
+          child: const Text('Salvar'),
+        ),
+      ],
+    ),
+  );
+}
 
   @override
   Widget build(BuildContext context) {
@@ -128,6 +158,7 @@ class _MapRangeState extends State<MapRange> {
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: Container(
+                    height: 70,
                     color: Colors.white,
                     padding: const EdgeInsets.all(8),
                     child: StreamBuilder<QuerySnapshot>(
@@ -177,7 +208,7 @@ class _MapRangeState extends State<MapRange> {
            const Spacer(),
             const SizedBox(width: 50),
             const Text(
-              'Confirmar',
+              'Local de Saída',
               style: TextStyle(
                 fontSize: 20,
                 color: Colors.white,

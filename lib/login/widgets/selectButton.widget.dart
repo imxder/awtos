@@ -61,7 +61,7 @@ class _SelectButtonState extends State<SelectButton> {
             child: const Text('MOTORISTA'),
           ),
         ),
-        const SizedBox(height: 250),
+        const SizedBox(height: 260),
         const Text('Powered by AWTOS.',
           textAlign: TextAlign.center,
           style: TextStyle(

@@ -124,6 +124,9 @@ class _PerfilMotoristaState extends State<PerfilMotorista> {
                                   width: 1.5,
                                 ),
                               ),
+                              labelStyle: TextStyle(
+                                color: Color.fromARGB(255, 98, 16, 8),
+                              ),
                             ),
                           ),
                           const SizedBox(height: 10),
@@ -145,6 +148,9 @@ class _PerfilMotoristaState extends State<PerfilMotorista> {
                                   color: Color.fromARGB(255, 98, 16, 8),
                                   width: 1.5,
                                 ),
+                              ),
+                              labelStyle: TextStyle(
+                                color: Color.fromARGB(255, 98, 16, 8),
                               ),
                             ),
                           ),
@@ -168,6 +174,9 @@ class _PerfilMotoristaState extends State<PerfilMotorista> {
                                   width: 1.5,
                                 ),
                               ),
+                              labelStyle: TextStyle(
+                                color: Color.fromARGB(255, 98, 16, 8),
+                              ),
                             ),
                           ),
                           const SizedBox(height: 10),
@@ -188,6 +197,9 @@ class _PerfilMotoristaState extends State<PerfilMotorista> {
                                   color: Color.fromARGB(255, 98, 16, 8),
                                   width: 1.5,
                                 ),
+                              ),
+                              labelStyle: TextStyle(
+                                color: Color.fromARGB(255, 98, 16, 8),
                               ),
                             ),
                           ),
