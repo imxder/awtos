@@ -16,7 +16,8 @@
 - Inserir bairro/cidade;
 - Verificação de campo vazio:
 
-### Tela Home Motorista/Passageiro::
+### Tela Home Motorista/Passageiro:
+- Mapa;
 - Editar ponto de partida;
 - Menu para outras opções;
 
