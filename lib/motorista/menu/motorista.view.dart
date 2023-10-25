@@ -42,7 +42,7 @@ class _PerfilMotoristaState extends State<PerfilMotorista> {
       ),
       body: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center, // Center the content vertically
+          // Center the content vertically
           children: [
             const SizedBox(height: 40.0),
             Stack(
@@ -203,11 +203,18 @@ class _PerfilMotoristaState extends State<PerfilMotorista> {
                         String novoAddress = _novoAddressController.text;
 
                         firestoreServiceMotorista.updateMotoristas2(docID, novoNome, novoEmail, novaSenha, novoAddress)
-                            .then((_) {
-                              setState(() {
-                                // Handle update success
-                              });
-                            });
+                        .then((_) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text('Perfil com sucesso',textAlign: TextAlign.center,
+                              ),
+                              backgroundColor: Color.fromARGB(255, 98, 16, 8),
+                            ),
+                          );   
+                          setState(() {
+                         
+                          });
+                        });
                       },
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
@@ -216,7 +223,8 @@ class _PerfilMotoristaState extends State<PerfilMotorista> {
                       ),
                       child: const Text('Salvar Edições'),
                     ),
-                    ElevatedButton(
+                    const SizedBox(height: 107),
+                    TextButton(
                       onPressed: () {
                         firestoreServiceMotorista.deleteMotorista(docID);
                           _novoNomeController.clear();
@@ -229,9 +237,15 @@ class _PerfilMotoristaState extends State<PerfilMotorista> {
                           ),
                         );
                       },
-                      child: const Text('Deletar Conta'),
+                      child: const Text(
+                        'Deletar Conta',
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 98, 16, 8), // Cor do texto
+                          fontSize: 16, // Tamanho da fonte
+                        ),
+                      ),
+                     
                     ),
-                    const SizedBox(height: 50.0),
                   ],
                 );
               },

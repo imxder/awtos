@@ -38,18 +38,20 @@ class FirestoreService{
   }
 
   Future<void> updatePassageiro2(String docID, String novoNome, String novoEmail, String novaSenha, String novoAddress) {
-  return passageiros.doc(docID).update({
-    'nome': novoNome,
-    'email': novoEmail,
-    'senha': novaSenha,
-    'address': novoAddress,
-    'timestamp': Timestamp.now(),
-  });
-}
+    return passageiros.doc(docID).update({
+      'nome': novoNome,
+      'email': novoEmail,
+      'senha': novaSenha,
+      'address': novoAddress,
+      'timestamp': Timestamp.now(),
+    });
+  }
 
   // DELETE
 
-
+  Future<void> deletePassageiro(String docID) {
+    return passageiros.doc(docID).delete();
+  }
 
 
 
