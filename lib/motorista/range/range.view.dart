@@ -15,74 +15,77 @@ class MapRange extends StatefulWidget {
 }
 
 class _MapRangeState extends State<MapRange> {
-  final Completer<GoogleMapController> _controller =
-      Completer<GoogleMapController>();
+  final Completer<GoogleMapController> _controller = Completer<GoogleMapController>();
 
   static const CameraPosition _kGooglePlex = CameraPosition(
     target: LatLng(-26.4796672, -49.0877181),
     zoom: 15.4746,
   );
 
-  final TextEditingController textController = TextEditingController();
-   
- void openBox({docID}) {
-  showDialog(
-    context: context,
-    builder: (context) => AlertDialog(
-      content: Column(
-        mainAxisSize: MainAxisSize.min, 
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text(
-            'Digite o Novo Local de Saída:', 
-         
-            style: TextStyle(
-              fontSize: 13,
-              fontWeight: FontWeight.normal,
-              color: Color.fromARGB(255, 98, 16, 8),
-            ),
-          ),
-          const SizedBox(height: 10),
-           TextField(
-            controller: textController,
-            decoration: const InputDecoration(
-              enabled: true,
-              enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(
+  void openBox({docID}) {
+    final TextEditingController textController = TextEditingController(); // Mova o TextField local
+
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'Digite o Novo Local de Saída:',
+                style: TextStyle(
+                  fontSize: 13,
+                  fontWeight: FontWeight.normal,
                   color: Color.fromARGB(255, 98, 16, 8),
-                  width: 1.5,
                 ),
               ),
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: Color.fromARGB(255, 98, 16, 8),
-                  width: 1.5,
+              const SizedBox(height: 10),
+              TextField(
+                controller: textController,
+                decoration: const InputDecoration(
+                  enabled: true,
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Color.fromARGB(255, 98, 16, 8),
+                      width: 1.5,
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Color.fromARGB(255, 98, 16, 8),
+                      width: 1.5,
+                    ),
+                  ),
+                  labelStyle: TextStyle(
+                    color: Color.fromARGB(255, 98, 16, 8),
+                  ),
                 ),
               ),
-              labelStyle: TextStyle(
-                color: Color.fromARGB(255, 98, 16, 8),
+            ],
+          ),
+          actions: [
+            ElevatedButton(
+              onPressed: () {
+                final newAddress = textController.text;
+                if (newAddress.isNotEmpty) { // Verificação de texto vazio
+                  FirestoreServiceMotorista().updateMotorista(docID, newAddress);
+                  Navigator.of(context).pop();
+                }
+              },
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(
+                  const Color.fromARGB(255, 98, 16, 8),
+                ),
               ),
+              child: const Text('Salvar'),
             ),
-          ),
-        ],
-      ),
-      actions: [
-        ElevatedButton(
-          onPressed: () {
-            FirestoreServiceMotorista().updateMotorista(docID, textController.text);
-            Navigator.of(context).pop();
-          },
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all<Color>(
-              const Color.fromARGB(255, 98, 16, 8),
-            ),
-          ),
-          child: const Text('Salvar'),
-        ),
-      ],
-    ),
-  );
-}
+          ],
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -93,7 +96,7 @@ class _MapRangeState extends State<MapRange> {
           alignment: Alignment.centerLeft,
           child: Text(
             'AWTOS',
-            style:  TextStyle(
+            style: TextStyle(
               fontFamily: 'Raleway',
               fontSize: 20,
               fontWeight: FontWeight.bold,
@@ -130,14 +133,14 @@ class _MapRangeState extends State<MapRange> {
                     children: [
                       Icon(
                         Icons.satellite_rounded,
-                        color:  Color.fromARGB(255, 98, 16, 8),
+                        color: Color.fromARGB(255, 98, 16, 8),
                       ),
                       SizedBox(width: 10),
                       Text(
                         'Raio de Pesquisa',
                         style: TextStyle(
                           fontSize: 20,
-                          color:  Color.fromARGB(255, 98, 16, 8),
+                          color: Color.fromARGB(255, 98, 16, 8),
                         ),
                       ),
                     ],
@@ -209,7 +212,7 @@ class _MapRangeState extends State<MapRange> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-           const Spacer(),
+            const Spacer(),
             const SizedBox(width: 50),
             const Text(
               'Local de Saída',
@@ -225,7 +228,7 @@ class _MapRangeState extends State<MapRange> {
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => const Passageiros(),
+                    builder: (context) => Passageiros(), // Passe o endereço do motorista
                   ),
                 );
               },
