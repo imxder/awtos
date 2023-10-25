@@ -145,22 +145,38 @@ class _CadastroMotoristaViewState extends State<CadastroMotoristaView> {
               const SizedBox(height: 35),
               ElevatedButton(
                 onPressed: () {
-                  _firestoreService.addMotoristas(
-                    _nomeController.text,
-                    _emailController.text,
-                    _senhaController.text,
-                    _addressController.text,
-                  );
-                  _nomeController.clear();
-                  _emailController.clear();
-                  _senhaController.clear();
-                  _addressController.clear();
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const LoginView(),
-                    ),
-                  );
-                  
+                  // Verificar se os campos estão vazios
+                  if (_nomeController.text.isEmpty ||
+                      _emailController.text.isEmpty ||
+                      _senhaController.text.isEmpty ||
+                      _addressController.text.isEmpty) {
+                    // Exibir um SnackBar com a mensagem de erro
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content:  Text(
+                          'Por favor, preencha todos os campos.',
+                          textAlign: TextAlign.center,
+                        ),
+                        backgroundColor:  Color.fromARGB(255, 98, 16, 8),
+                      ),
+                    );
+                  } else {
+                    _firestoreService.addMotoristas(
+                      _nomeController.text,
+                      _emailController.text,
+                      _senhaController.text,
+                      _addressController.text,
+                    );
+                    _nomeController.clear();
+                    _emailController.clear();
+                    _senhaController.clear();
+                    _addressController.clear();
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                        builder: (context) => const LoginView(),
+                      ),
+                    );
+                  }
                 },
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(

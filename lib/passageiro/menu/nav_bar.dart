@@ -43,7 +43,7 @@ class _NavBarState extends State<NavBar> {
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => const PerfilPassageiro(),
+                  builder: (context) => const PerfilPassageiro()
                 ),
               );
             },

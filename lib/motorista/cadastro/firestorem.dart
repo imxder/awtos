@@ -37,15 +37,16 @@ class FirestoreServiceMotorista{
     }); 
   }
 
-  Future<void> updateMotoristas2(String docID, String novoNome, String novoEmail, String novaSenha, String novoAddress) {
-    return motoristas.doc(docID).update({
-      'nome': novoNome,
-      'email': novoEmail,
-      'senha': novaSenha,
-      'address': novoAddress,
-      'timestamp': Timestamp.now(),
-    });
-  }
+  Future<void> updateMotoristas2(String docID, String novoNome, String novoEmail, String novaSenha, String novoAddress, String imageUrl) {
+  return motoristas.doc(docID).update({
+    'nome': novoNome,
+    'email': novoEmail,
+    'senha': novaSenha,
+    'address': novoAddress,
+    'image': imageUrl,  
+    'timestamp': Timestamp.now(),
+  });
+}
 
   // DELETE
 

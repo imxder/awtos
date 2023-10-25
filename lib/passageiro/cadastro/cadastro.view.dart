@@ -141,21 +141,50 @@ class _CadastroPassageiroViewState extends State<CadastroPassageiroView> {
               const SizedBox(height: 35),
               ElevatedButton(
                 onPressed: () {
-                  _firestoreService.addPassageiro(
-                    _nomeController.text,
-                    _emailController.text,
-                    _senhaController.text,
-                    _addressController.text,
-                  );
-                  _nomeController.clear();
-                  _emailController.clear();
-                  _senhaController.clear();
-                  _addressController.clear();
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(
-                      builder: (context) => const LoginView(),
-                    ),
-                  );
+                  // Verificar se os campos estão vazios
+                  if (_nomeController.text.isEmpty ||
+                      _emailController.text.isEmpty ||
+                      _senhaController.text.isEmpty ||
+                      _addressController.text.isEmpty) {
+                    // Mostrar um diálogo ou mensagem de erro
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          title: const Text('Erro de Cadastro'),
+                          content: const Text('Por favor, preencha todos os campos.'),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: const Text('OK', 
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 0, 44, 125)),
+                              ),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  } else {
+  
+                    _firestoreService.addPassageiro(
+                      _nomeController.text,
+                      _emailController.text,
+                      _senhaController.text,
+                      _addressController.text,
+                    );
+                    _nomeController.clear();
+                    _emailController.clear();
+                    _senhaController.clear();
+                    _addressController.clear();
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                        builder: (context) => const LoginView(),
+                      ),
+                    );
+                  }
                 },
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
