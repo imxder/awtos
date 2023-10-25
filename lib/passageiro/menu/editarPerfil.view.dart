@@ -47,13 +47,15 @@ class _PerfilPassageiroState extends State<PerfilPassageiro> {
           _novoAddressController.text = data['address'];
         }
 
-        setState(() {});
+        if (mounted) {
+        setState(() {
+           // Sua operação setState()
+          });
+        }
       }
     });
   }
      
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
