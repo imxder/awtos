@@ -206,7 +206,7 @@ class _PerfilPassageiroState extends State<PerfilPassageiro> {
                             .then((_) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
-                                  content: Text('Perfil com sucesso',textAlign: TextAlign.center,
+                                  content: Text('Alterado com sucesso',textAlign: TextAlign.center,
                                   ),
                                   backgroundColor:  Color.fromARGB(255, 0, 44, 125),
                                 ),
@@ -251,7 +251,7 @@ class _PerfilPassageiroState extends State<PerfilPassageiro> {
                     return const Text('Nenhum registro encontrado.');
                   }
                 } else {
-                  return const Text('Loading...');
+                  return const Text('Carregando...');
                 }
               },
             )

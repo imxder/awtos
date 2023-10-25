@@ -30,6 +30,7 @@ class _PassageirosState extends State<Passageiros> {
         ),
         backgroundColor: const Color.fromARGB(255, 98, 16, 8),
       ),
+      
       body: StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance.collection('passageiros').snapshots(),
         builder: (context, snapshot) {
