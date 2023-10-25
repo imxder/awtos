@@ -259,7 +259,7 @@ class _PerfilPassageiroState extends State<PerfilPassageiro> {
                                   'Alterado com Sucesso',
                                   textAlign: TextAlign.center,
                                 ),
-                                backgroundColor:  Color.fromARGB(255, 98, 16, 8),
+                                backgroundColor: Color.fromARGB(255, 0, 44, 125),
                               ),
                             );
                             if (mounted) {
@@ -275,14 +275,14 @@ class _PerfilPassageiroState extends State<PerfilPassageiro> {
                                 'Por favor, preencha todos os campos.',
                                 textAlign: TextAlign.center,
                               ),
-                              backgroundColor:  Color.fromARGB(255, 98, 16, 8),
+                              backgroundColor: Color.fromARGB(255, 0, 44, 125),
                             ),
                           );
                         }
                       },
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
-                          const Color.fromARGB(255, 98, 16, 8),
+                          const Color.fromARGB(255, 0, 44, 125),
                         ),
                       ),
                       child: const Text('Salvar Edições'),

@@ -51,7 +51,7 @@ class _PerfilMotoristaState extends State<PerfilMotorista> {
         
           if (mounted) {
           setState(() {
-            // Sua operação setState()
+            
           });
         }
       }
