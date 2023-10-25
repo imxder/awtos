@@ -1,5 +1,5 @@
+import 'package:awtos/login/login.view.dart';
 import 'package:awtos/passageiro/cadastro/firestorep.dart';
-import 'package:awtos/passageiro/home/home.view.dart';
 import 'package:flutter/material.dart';
 
 class CadastroPassageiroView extends StatefulWidget {
@@ -151,9 +151,9 @@ class _CadastroPassageiroViewState extends State<CadastroPassageiroView> {
                   _emailController.clear();
                   _senhaController.clear();
                   _addressController.clear();
-                  Navigator.of(context).push(
+                  Navigator.of(context).pushReplacement(
                     MaterialPageRoute(
-                      builder: (context) => const MapSample(),
+                      builder: (context) => const LoginView(),
                     ),
                   );
                 },
