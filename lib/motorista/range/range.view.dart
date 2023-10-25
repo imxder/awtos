@@ -1,3 +1,4 @@
+import 'package:awtos/login/login.view.dart';
 import 'package:awtos/motorista/cadastro/firestorem.dart';
 import 'package:awtos/motorista/passageiros/passageiros.view.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -116,7 +117,11 @@ class _MapRangeState extends State<MapRange> {
                   icon: const Icon(Icons.arrow_back),
                   color: const Color.fromARGB(255, 98, 16, 8),
                   onPressed: () {
-                    Navigator.of(context).pop();
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                        builder: (context) => const LoginView(),
+                      ),
+                    );
                   },
                 ),
                 const Expanded(
@@ -158,7 +163,6 @@ class _MapRangeState extends State<MapRange> {
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: Container(
-                    height: 70,
                     color: Colors.white,
                     padding: const EdgeInsets.all(8),
                     child: StreamBuilder<QuerySnapshot>(

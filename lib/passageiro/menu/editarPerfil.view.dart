@@ -231,7 +231,7 @@ class _PerfilPassageiroState extends State<PerfilPassageiro> {
                               _novoEmailController.clear();
                               _novaSenhaController.clear();
                               _novoAddressController.clear();
-                            Navigator.of(context).push(
+                            Navigator.of(context).pushReplacement(
                               MaterialPageRoute(
                                 builder: (context) => const LoginView(),
                               ),

@@ -243,7 +243,7 @@ class _PerfilMotoristaState extends State<PerfilMotorista> {
                           _novoEmailController.clear();
                           _novaSenhaController.clear();
                           _novoAddressController.clear();
-                        Navigator.of(context).push(
+                        Navigator.of(context).pushReplacement(
                           MaterialPageRoute(
                             builder: (context) => const LoginView(),
                           ),
