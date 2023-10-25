@@ -1,7 +1,6 @@
 # Descrição do App:
 <p>O aplicativo acima será responsável no auxílio de carona para os alunos da universidade, tendo em vista os alunos que vão de carro para a universidade, assim eles poderiam se cadastrar no aplicativo e dar carona para outros alunos que moram próximo ou no caminho da universidade.</p>
 
-## Motorista 
 ### Tela de Login:
 - Fazer login com e-mail e senha;
 - Login passageiro;
