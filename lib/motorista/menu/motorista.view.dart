@@ -26,7 +26,7 @@ class _PerfilMotoristaState extends State<PerfilMotorista> {
   final TextEditingController _novoEmailController = TextEditingController();
   final TextEditingController _novaSenhaController = TextEditingController();
   final TextEditingController _novoAddressController = TextEditingController();
-  String docID = ''; // Defina a variável docID
+  String docID = ''; 
 
   @override
   void initState() {
@@ -41,7 +41,7 @@ class _PerfilMotoristaState extends State<PerfilMotorista> {
         Map<String, dynamic>? data = lastDocument.data() as Map<String, dynamic>?;
 
         if (data != null) {
-          docID = lastDocument.id; // Defina o docID aqui
+          docID = lastDocument.id; 
           imageUrl = data['image'] ?? '';
           _novoNomeController.text = data['nome'];
           _novoEmailController.text = data['email'];
@@ -133,7 +133,13 @@ class _PerfilMotoristaState extends State<PerfilMotorista> {
                 List<QueryDocumentSnapshot> motoristasList = snapshot.data!.docs;
                 QueryDocumentSnapshot lastDocument = motoristasList.first;
                 Map<String, dynamic> data = lastDocument.data() as Map<String, dynamic>;
+                String docID = lastDocument.id;
 
+                _novoNomeController.text = data['nome'];
+                _novoEmailController.text = data['email'];
+                _novaSenhaController.text = data['senha'];
+                _novoAddressController.text = data['address'];
+                
                 return Column(
                   children: [
                     Padding(
