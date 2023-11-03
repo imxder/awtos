@@ -140,8 +140,6 @@ class _PerfilMotoristaState extends State<PerfilMotorista> {
                 _novaSenhaController.text = data['senha'];
                 _novoAddressController.text = data['address'];
 
-              
-                
                 return Column(
                   children: [
                     Padding(
