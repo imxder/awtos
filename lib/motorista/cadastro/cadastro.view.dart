@@ -191,6 +191,18 @@ class _CadastroMotoristaViewState extends State<CadastroMotoristaView> {
                 ),
                 child: const Text('Criar Conta'),
               ),
+              const SizedBox(height: 145),
+              const Text(
+                'Powered by AWTOS.',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 12,
+                  fontFamily: 'Raleway',
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromRGBO(1, 28, 105, 0.9),
+                  decoration: TextDecoration.none,
+                ),
+              ),
             ],
           ),
         ),
