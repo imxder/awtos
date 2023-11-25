@@ -30,7 +30,7 @@ class _PassageirosState extends State<Passageiros> {
             passageirosData[document.id] = data['image'] ?? '';
           }
         }
-        
+
         if (mounted) {
           setState(() {
             imageUrl = passageirosData;
@@ -48,7 +48,7 @@ class _PassageirosState extends State<Passageiros> {
         title: const Align(
           alignment: Alignment.centerLeft,
           child: Text(
-            'AWTOS',
+            'PASSAGEIROS',
             style: TextStyle(
               fontFamily: 'Raleway',
               fontSize: 20,

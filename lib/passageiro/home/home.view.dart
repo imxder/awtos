@@ -184,7 +184,7 @@ class MapSampleState extends State<MapSample> {
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => const ChatPage(),
+                    builder: (context) => const Motoristas(),
                   ),
                 );
               },
