@@ -93,7 +93,7 @@ class _PassageirosState extends State<Passageiros> {
                 child: ListTile(
                   contentPadding: const EdgeInsets.all(16),
                   leading: CircleAvatar(
-                    radius: 20,
+                    radius: 30,
                     backgroundImage: imageUrl.containsKey(passageiro.id) &&
                         imageUrl[passageiro.id] != null &&
                         imageUrl[passageiro.id]!.isNotEmpty
