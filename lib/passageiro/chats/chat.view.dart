@@ -104,7 +104,7 @@ class _MotoristasState extends State<Motoristas> {
                   subtitle: Row(
                     children: [
                       const Text(
-                        'Embarque: ',
+                        'Saída: ',
                         style: TextStyle(
                           color: Colors.grey,
                           fontWeight: FontWeight.bold,
